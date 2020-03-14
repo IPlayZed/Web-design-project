@@ -112,38 +112,37 @@ img{
 
 /*ITT KEZDŐDIK A TÁBLÁZAT */ 
 #t1 {
-    width: 50%;
-    border: 1px solid #b4b4b4;
+    width: 100%;
+    border: 0.2em solid #3CB371;
     margin-left:auto; 
     margin-right:auto;
 
       
 }
 #t1 th{ 
-    padding: 10px;
+    padding: 1em;
     text-align: center;
     background-color: #3CB371;
-    border: 1px solid #778899;
-    font-size: 22px;
+    /*border: 0.01em solid #778899;*/
+    font-size: 1.5em;
     color: #000000;
     font-weight: bold;
 
 }
 #t1 #td1 {    
-    /*padding: 15px;*/
     text-align: center;
-    border: 1px solid #778899;
+    /*border: 0.01em solid #778899;*/
     font-weight:bold;
-    font-size: 18px;
+    font-size: 1.5em;
 }
 #t1 td,#t1 tr{    
-    padding: 8px;
+    padding: 0.5em;
     text-align: left;
-    border: 1px solid #778899;
+    border: 0.01em solid #3CB371;
 }
-#t1  tr:nth-child(even){
+/*#t1  tr:nth-child(even){
     background-color: #3CB371;
     color: #3c3c3c;
 } 
-
+*/
 
