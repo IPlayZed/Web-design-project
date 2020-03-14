@@ -1,0 +1,56 @@
+body {
+    font-family: "Segoe UI",Arial,sans-serif;
+    background-color: #fcfcfc;
+    font-size:16px;
+    padding-bottom:50px;
+  }
+  table,td,th {
+    border-collapse: collapse;
+  }
+  th,td {
+    border: 1px solid #000000;
+    padding:5px;
+  }
+  table {
+    margin:10px;
+  }
+  td:first-child {
+    /*font-weight:bold;*/
+    vertical-align: top;
+  }
+  .stfill {
+    font-weight:bold;
+    color:#DD4132;
+  }
+  .sum {
+    border-top:2px solid #000000;
+  }
+  .sum td {
+    font-weight:bold;
+  }
+  .task {
+    font-weight:bold;
+  }
+  .subtask {
+    padding-left:25px;
+  }
+  .note {
+    font-size:12px;
+    display:block;
+  }
+  tr.sum>td:nth-child(2),
+  td:nth-child(3),
+  td:nth-child(4) {
+    text-align: center;
+  }
+  tr.header {
+    border-bottom: 2px solid #000000;
+  }
+  .example {
+    font-style: italic;
+    color:grey;
+  }
+  .kotelezo{ 
+      color:red; 
+      font-weight: bold; 
+   }

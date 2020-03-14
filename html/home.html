@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="author" content="Börcsök Balázs Róbert,Illés Árpád"/> <!--Egészítsd ki majd :d-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!---->
+        <meta keywords="CSS,wiki,learning,general,description"/>
+        <meta name="description" content="CSS wiki"/>
+
+        <title>A "nagy" CSS wiki</title>
+        
+        
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap"/>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap"/>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"/>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito&display=swap"/>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial&display=swap"/>
+        <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/home.css">
+
+        <link rel="icon" type="image/png" href="../media/icons/Logo.png"/>
+
+        <style></style>
+        <script></script>     
+    </head>
+
+    <body>
+        <div class="flex-column-container">
+                
+                <header> <!--Főcím-->
+                        A &quot;nagy&quot; CSS wiki: kezdőlap
+                </header> 
+                    
+                <nav> <!--Menü-->
+                        <ul class="flex-row-container">
+                            <li><a href="#top">Kezdőlap</a></li>
+                            <li><a href="">Örkölődés</a></li>
+                            <li><a href="">Animációk</a></li>
+                            <li><a href="">Saját gyűjtemény</a></li>
+                            <li><a href="">Profilom</a></li>
+                        </ul>
+                </nav>
+
+            <div class="flex-row-container">
+                <aside> <!--Ide jön majd az értékelés lehetősége.-->
+                    <h1>Kapcsolódó weblapok</h1>
+                    <ul>
+                        <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">A CSS Wikipádia oldala</a></li>
+                    </ul>
+                </aside> 
+
+                <main>
+                        <div> <!--Rövid bemutatás-->
+                            <h1>Mi az a CSS?</h1>
+                                    <ul>
+                                        <li>
+                                            A Cascading Style Sheets-et rövidíti. 
+                                        </li>
+                                        <li>
+                                            A CSS leírja, hogy hogyan nézzenek ki a HTML tagok.
+                                        </li>
+                                        <li>
+                                            Nagyon diverz módon lehet kombinálni, az objektumorientált nyelvekhez hasonlóan az 
+                                            örkölődés segítségével sok munkát meg lehet takarítani.
+                                        </li>
+                                    </ul>
+                        </div>
+
+                        <div> <!--Rövid történelem-->
+                            <h1>A CSS története</h1>
+                                <p> 
+                                    A stílusleíró nyelvek már a 90-es évek eleje óta léteznek, de akkoriban jeletősen más volt a felhasználása.
+                                    Egyes böngészők hoztak létre saját stílusleíró nyelveket. Megjelentek standardok is, mint például a 
+                                    DSSSL, vagy a FOSI, melyek nem támogatták azt, hogy egy HTML dokumentumhoz több mint egy CSS stíluslap tartozzon.
+                                </p>
+                            <h2>A CSS atyjai</h2>
+                                <figure>
+                                    <!--<img src="../media/pictures/330px-Håkon-Wium-Lie-2009-03.jpg" alt="Håkon Wium Lie, a CSS atyja"/>-->
+                                    <figcaption>Håkon Wium Lie, a CSS atyja</figcaption>
+                                </figure>
+                                <figure>
+                                    <!--<img src="../media/pictures/Bert_Bos_1.jpg" alt="Bert Bos a társ-atyja a CSS-nek">-->
+                                    <figcaption>Bert Bos, a CSS társ-atyja</figcaption>
+                                </figure> 
+                                <p>
+                                    A HTML népszerűségének magában hordozta a komplex igények kialakítását is. Egyik ilyen volt, hogy lehessen a weblapok
+                                    megjelenésén változtatni. Sajnos a HTML kódba ágyazott stílusleírás nem vezetett fenntartható kódra, arról nem is 
+                                    beszélve, hogy minden böngésző picit máshogyan jelenítette meg az elemeket. A megoldást 
+                                    Håkon Wium Lie tett ajánlást először 1994 Októberében
+                                    a CSS megalkotására. 2 évvel később, 1996-ban az első W3C CSS ajánlás megszületett és a CSS1 lett az legelső verziója a CSS-nek.
+                                </p>
+                        </div>
+
+                        <div> <!--CSS verziók bemutatása táblázatban-->
+                            <table id="t1">     	 <!-- fordításon javítok vagy ha találsz értelmesebb szöveget magyarul akkor átirogatom,vagy egy az egybe angol copypaste-->
+                                <tr>
+                                    <tr id="tr1">
+                                    <th>Variáció</th><th>Leírás</th>
+                                    </tr>
+                                <tr>
+                                <td id="td1">CSS 1</td>
+                                <td>
+                                1996 December 17-én publikált.Håkon Wium Lie és Bert Bos az eredeti fejlesztői.<br>Képességei közt szerepel: <br>
+                                <ul>
+                                <li>Betűtípus tulajdonságok pl. typeface és emphasis</li>
+                                <li>Szöveg,háttér és más elemek színe</li>
+                                <li>Szöveg tulajdonságok: szó/betű/sor-táv</li>
+                                <li>Szöveg,kép,táblázat és más elemek igazítása</li>
+                                <li>Margó,keret,térköz és pozicionálás a legtöbb emelhez</li>
+                                <li>Egyedi azinosító és általános osztályozás tulajdonságcsoportoknak</li> 
+                                </ul>
+                                </td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                <td id="td1">CSS 2</td>
+                                <td>
+                                W3C fejlesztette és publikálta 1998 májusában.<br>CSS2 több új képességet is tartalmaz mint pl.:<br>
+                                <ul>
+                                <li>elemek abszolút,relatív és rögzített pozícionálása ,és a z-index</li>
+                                <li>médiatípusok fogalma</li>
+                                <li>aural styles sheet támogatása</li>
+                                <li>kétirányú szöveg</li>
+                                <li>új betűtípus tulajdonságok mint pl. árnyékok</li>
+                                </ul>
+                                </td>
+                                </tr>
+                                
+                                <tr>
+                                <td id="td1">CSS 2.1</td>
+                                <td>
+                                CSS 2 hibáinak javítása,gyengén támogatott vagy nem teljesen működőképes funkciók eltávolítása<br>,már implementált 
+                                böngésző kiegészítők hozzáadása.<br>CSS 2.1 oda-vissza ugrált Working Draft és W3C Candidate Recommendation státusz között több évig<br>
+                                majd végül 2011 Június 7-én publikálták W3C Recommendation -ként
+                                </td>
+                                </tr>
+                                
+                                <tr>
+                                <td id="td1">CSS 3</td>
+                                <td>
+                                CSS 2-vel ellentétben a CSS 3 több különálló dokumentumra/"modulokra" van felosztva.<br>
+                                Minden modul új funkciókat ad hozzá vagy bővíti a CSS 2-ben definiáltakat ,megőrizvén a visszafelé való kompatibilitást.<br>
+                                A CSS 3 munkálatai nagyjából már az eredeti CSS 2 recommendation(ajánlás...) publikálásakor kezdődtek.<br>Az első CSS 3 
+                                vázlatokat 1999 Júniusában publikálták.<br>A modularizálásból kifolyólag különböző modulok stabilitása 
+                                és státusza eltérő.Némely modul Candidate Recommendation(CR)<br> státuszban van és nem tekinthető teljesen stabilnak.
+                                </td>
+                                </tr>
+                                
+                                <tr>
+                                <td id="td1">CSS 4</td>
+                                <td>
+                                Nincs egyedülálló ,integrált CSS 4 specifikáció mert több különálló ,egymástól függetlenmodulra van osztva.<br>
+                                CSS Level 2-re épülő modulok Level 3-ban kezdődtek ,ezekből néhány már elérte a Level 4-et vagy már a Level 5-höz közelít.<br>
+                                Teljesen új funkcionalitást defináló modulok (pl. a Flexbox) Level 1 -ként lettek jelölve,ezekből néhány Level 2-höz közelít<br>
+                                </td>
+                                </tr>
+                                
+                                
+                                
+                                
+                                
+                                </table><!--CSS verziók bemutatása táblázatban-->
+                        </div>
+                </main>
+            </div>
+            
+            <footer>
+                        <div class="flex-column-container">
+                            <div class="flex-row-container">
+                                <span>Készítette: Illés Árpád és Börcsök Balázs Róbert</span>
+                                <span>A "nagy" CSS wiki&copy;</span>
+                            </div>
+                        </div>
+                        <div>
+                            Social media:
+                            <a href="https://stackoverflow.com/users/10653163/bal%c3%a1zs-b%c3%b6rcs%c3%b6k" target="_blank">
+                            <!--<img src="../media/pictures/borcsokbalazsrobert_stackoverflow_profile.jpg" alt="Börcsök Balázs Róbert: StackOverflow">-->
+                            </a>
+                            <!--Ide helyettesíthetnél te is vlmi felhasználói profilt.-->
+                        </div>
+            </footer>
+        </div>  
+    </body>
+    
+</html>
