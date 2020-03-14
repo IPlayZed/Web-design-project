@@ -9,7 +9,6 @@
 
         <title>A "nagy" CSS wiki</title>
         
-        
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap"/>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap"/>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"/>
@@ -42,16 +41,16 @@
                 </nav>
 
             <div class="flex-row-container">
-                <aside> <!--Ide jön majd az értékelés lehetősége.-->
+                <aside class="felx-column-container"> <!--Ide jön majd az értékelés lehetősége.-->
                     <h1>Kapcsolódó weblapok</h1>
                     <ul>
                         <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">A CSS Wikipádia oldala</a></li>
                     </ul>
                 </aside> 
 
-                <main>
-                        <div> <!--Rövid bemutatás-->
-                            <h1>Mi az a CSS?</h1>
+                <main class="flex-column-container">
+                        <div class="flex-column-container"> <!--Rövid bemutatás-->
+                            <h1>Mi az a CSS?</h1> <!--Ide a listaelemeknek rakok ikont.-->
                                     <ul>
                                         <li>
                                             A Cascading Style Sheets-et rövidíti. 
@@ -166,20 +165,22 @@
             </div>
             
             <footer>
-                        <div class="flex-column-container">
-                            <div class="flex-row-container">
-                                <span>Készítette: Illés Árpád és Börcsök Balázs Róbert</span>
-                                <span>A "nagy" CSS wiki&copy;</span>
-                            </div>
-                        </div>
-                        <div>
-                            Social media:
-                            <a href="https://stackoverflow.com/users/10653163/bal%c3%a1zs-b%c3%b6rcs%c3%b6k" target="_blank">
-                            <!--<img src="../media/pictures/borcsokbalazsrobert_stackoverflow_profile.jpg" alt="Börcsök Balázs Róbert: StackOverflow">-->
-                            </a>
-                            <!--Ide helyettesíthetnél te is vlmi felhasználói profilt.-->
-                        </div>
+                <div class="flex-column-container">
+                    <div class="flex-row-container">
+                        <span>Készítette: Illés Árpád és Börcsök Balázs Róbert</span>
+                            <span>A "nagy" CSS wiki&copy;</span>
+                    </div>
+                </div>
+
+                <div>
+                    Social media:
+                        <a href="https://stackoverflow.com/users/10653163/bal%c3%a1zs-b%c3%b6rcs%c3%b6k" target="_blank">
+                        <!--<img src="../media/pictures/borcsokbalazsrobert_stackoverflow_profile.jpg" alt="Börcsök Balázs Róbert: StackOverflow">-->
+                        </a>
+                        <!--Ide helyettesíthetnél te is vlmi felhasználói profilt.-->
+                </div>
             </footer>
+
         </div>  
     </body>
     
