@@ -1,0 +1,9 @@
+html{
+    height:100%;
+}
+#m_prof{
+    text-align:left;
+    position:relative;
+    top:0em;
+    left:5em;
+}

@@ -7,13 +7,14 @@
         <meta keywords="CSS,wiki,learning,general,description"/>
         <meta name="description" content="CSS wiki"/>
 
-        <title>Login</title>
+        <title>Profil</title>
         
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap"/>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap"/>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"/>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito&display=swap"/>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial&display=swap"/>
+        <link rel="stylesheet" type="text/css" href="../css/profile.css"/>
         <link rel="stylesheet" type="text/css" href="../css/login2.css"/>
         <link rel="stylesheet" type="text/css" href="../css/base.css">
 
@@ -27,38 +28,40 @@
         <div class="flex-column-container">
                 
                 <header> <!--Főcím-->
-                        A &quot;nagy&quot; CSS wiki: Login
+                        A &quot;nagy&quot; CSS wiki: Profilom
                 </header> 
                     
                 <nav> <!--Menü-->
                         <ul class="flex-row-container">
-                            <li><a href="home.html">Kezdőlap</a></li>
+                            <a href="home.html">Kezdőlap</a></li>
                             <li><a href="">Öröklődés</a></li>
                             <li><a href="">Animációk</a></li>
                             <li><a href="">Saját gyűjtemény</a></li>
-                            <li><a href="profile.html">Profilom</a></li>
+                            <li><a href="#top">Profilom</a></li>
                         </ul>
                 </nav>
             </div>
 
             <div class="flex-row-container">
-                <aside class="flex-column-container">
+                <aside id="prof_a" class="flex-column-container">
                     <h1>Kapcsolódó weblapok</h1>
                     <ul>
                         <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">A CSS Wikipédia oldala</a></li>
                     </ul>
                 </aside> 
 
-                <main class="flex-column-container">
-                    <form>
-                        <label for="email">E-mail</label><br>
-                        <input type="text" id="email" name="email" value="E-mail"><br>
-                        <label for="pw">Jelszó</label><br>
-                        <input type="password" id="pwd" name="pwd" value="blablabla"><br>    <hr>
-                        <button type="submit" value="Elfogad">Elfogad</button>
-                        <button type="reset" value="Reset">Mégse</button><br><br>
-                        <a href="kaga">Elfelejtette jelszavát?</a>
-                    </form>    
+                <main id="m_prof" class="flex-column-container">
+                    <div>
+                        <h1>Profilom</h1>
+                        <img src="" alt="user avatar"> <!--profilképnek hely ha lesz egyszer regisztrált "felhasználó"-->
+                    </div>
+                    <div class="flex-column-container">
+                        <h2>Hasznos linkek</h2>
+                        <a href="">Saját oldal létrehozása</a></li><br>
+                        <a href="">Saját oldal</a></li><br>
+                        <a href="">Látogatott linkek</a></li><br>
+                        <a href="">Jelszó változtatás</a></li><br>
+                    </div>
                 </main>
             </div>
             

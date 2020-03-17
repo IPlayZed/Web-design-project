@@ -4,7 +4,7 @@ html {
 
 aside{
     width:8.2em;
-    height: 30em;
+    min-height: 30em;
     margin-right: 1.4em;
 
     padding-top: 0.3em;
