@@ -21,12 +21,13 @@ aside{
 }
 main{
     text-align:center;
-    position:relative;
-    left:37em;
-    top:5em;
+    position:absolute;
+    left:48em;
+    top:10em;
 }
 
 form button{
+    min-width: 5.5em;
     background-color: rgba(255, 145, 1, 0.685);
     border: none;
     color: black;
@@ -34,7 +35,19 @@ form button{
     text-decoration: none;
     display: inline-block;
     font-size: 1.2em;
+    border-radius: 2em;    
+}
+#button1{
+    background-color: rgba(255, 145, 1, 0.685);
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    direction: rtl;
+    display: inline-block;
+    font-size: 1.2em;
     border-radius: 2em;
+    transform: rotate(180deg);
 }
 
 form label{
@@ -42,6 +55,7 @@ form label{
 }
 
 form input{
+    min-width: 17em;
     padding: 0.5em;
     border-radius: 1em;
 }

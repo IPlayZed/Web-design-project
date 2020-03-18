@@ -7,3 +7,8 @@ html{
     top:0em;
     left:5em;
 }
+
+img {
+    border-radius: 2em;
+    border:0.2em solid rgba(255, 145, 1, 0.685);
+}
