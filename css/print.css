@@ -1,0 +1,48 @@
+@media print {
+    body {
+        margin: 0;
+        color: #000;
+        background-color: #fff;
+        font-size:12pt;
+
+    }
+    p{
+        font-size:12pt;
+    }
+    h1,h2,h3,h4,h5,h6{
+        break-after:avoid;
+        font-size:12pt;
+        font-style:normal;
+    }
+    aside{
+        max-width:0cm;
+        visibility:hidden;
+    }
+    main{
+        margin:0cm;
+    }
+    header, footer, nav, form, img,aside{
+        display: none;
+    }
+    #t1{
+        border:none;
+    }
+    #t1 th{
+        padding:2pt;
+        text-align: center;
+        font-size: 12pt;
+        color: #000000;
+        font-weight: bold;
+
+    }
+    #t1 #td1 {
+        text-align: center;
+        font-weight:bold;
+        font-size: 12pt;
+    }
+    #t1 td,#t1 tr{    
+        text-align: left;
+        border:none;
+    }
+
+}
