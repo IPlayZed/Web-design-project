@@ -52,6 +52,17 @@
     background-color: #d3d3d3d3;
 }
 
+body{
+    font-family: 'Noto Serif', serif;
+    font-weight: 500;
+    font-size: 1.1em;
+    font-style: normal;
+    color: black;
+
+    background: linear-gradient(to bottom right, #0ef5bbea,#adf507f6);
+    background-repeat: no-repeat;
+}
+
 /* HTML5 tags */
 header{
     font-family: 'Amatic SC', cursive;
@@ -78,17 +89,6 @@ nav ul{
     list-style-type: none;
 }
 
-body{
-    font-family: 'Noto Serif', serif;
-    font-weight: 500;
-    font-size: 1.1em;
-    font-style: normal;
-    color: black;
-
-    background: linear-gradient(to bottom right, #0ef5bbea,#adf507f6);
-    background-repeat: no-repeat;
-}
-
 aside{
     margin-right: 1.4em;
 
@@ -110,6 +110,10 @@ aside ul{
 }
 aside ul li{
     font-weight: 700;
+}
+
+main{
+    overflow-y: auto;
 }
 
 footer{

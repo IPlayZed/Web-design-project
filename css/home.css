@@ -9,6 +9,12 @@ figcaption{
     font-family: 'Quicksand', sans-serif;
 }
 
+figure img{
+    max-width: 600px;
+    max-height: 400px;
+    margin: 0 auto;
+}
+
 
 /* Table */
 #t1 {
