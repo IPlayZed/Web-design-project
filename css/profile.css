@@ -1,7 +1,8 @@
 html{
     height:100%;
 }
-#m_prof{
+main{
+    width:100%;
     text-align:left;
 }
 #prof_div{
