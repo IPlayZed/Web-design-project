@@ -52,7 +52,7 @@ figure img{
 } 
 */
 @media screen and (max-width: 992px){
-    main figure{
-        flex-direction: row;
+    #gallery{
+        flex-direction: column;
     }
 }
