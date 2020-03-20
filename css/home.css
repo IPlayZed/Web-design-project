@@ -16,7 +16,6 @@ figure img{
     margin: 0 auto;
 }
 
-
 /* Table */
 #t1 {
     width: 100%;
@@ -52,3 +51,8 @@ figure img{
     color: #3c3c3c;
 } 
 */
+@media screen and (max-width: 992px){
+    main figure{
+        flex-direction: row;
+    }
+}
