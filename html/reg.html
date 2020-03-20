@@ -9,12 +9,7 @@
 
         <title>Regisztráció</title>
         
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap"/>
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap"/>
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"/>
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito&display=swap"/>
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial&display=swap"/>
-        <link rel="stylesheet" type="text/css" href="../css/login2.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/reg.css"/>
         <link rel="stylesheet" type="text/css" href="../css/base.css">
 
         <link rel="icon" type="image/png" href="../media/icons/Logo.png"/>
@@ -45,21 +40,31 @@
                 <aside class="flex-column-container">
                     <h1>Kapcsolódó weblapok</h1>
                     <ul>
-                        <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">A CSS Wikipédia oldala</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">A CSS Wikipádia oldala</a></li>
                     </ul>
-                </aside> 
+                </aside>  
 
                 <main class="flex-column-container">
-                    <form>
+                    <form> <!-- php -->
                         <label for="email">E-mail</label><br>
-                        <input type="text" id="email" name="email" value="E-mail"><br>
+                        <input type="text" id="email" name="email" value="E-mail" required><br>
+                        <label for="usr">Felhasználónév</label><br>
+                        <input type="text" id="usr" name="usr" value="Felhasználónév" required><br>
                         <label for="pw">Jelszó</label><br>
-                        <input type="password" id="pwd" name="pwd" value=""><br>
-                        <label for="pw">Jelszó újra</label><br>
-                        <input type="password" id="pwd_again" name="pwd" value=""><br>    <hr>
+                        <input type="password" id="pwd" name="pwd" value="" required><br>
+                        <label for="pwd_again">Jelszó újra</label><br>
+                        <input type="password" id="pwd_again" name="pwd" value=""required><br>
+                        <label for="gender">Neme</label><br>
+                        <select id="gender" name="gender">
+                            <option value="male">Férfi</option>
+                            <option value="female">Nő</option>
+                            <option value="helo">Helikopter</option>
+                            <option value="train">Tehervonat</option>
+                        </select>
+                        <hr>
                         <button type="submit" value="Elfogad">Elfogad</button>
                         <button type="reset" value="Reset">Mégse</button><br>
-                    </form>    
+                    </form>
                 </main>
             </div>
             
