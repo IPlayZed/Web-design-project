@@ -8,3 +8,40 @@
 figcaption{
     font-family: 'Quicksand', sans-serif;
 }
+
+
+/* Table */
+#t1 {
+    width: 100%;
+    border: 0.2em solid #3CB371;
+    margin-left:auto; 
+    margin-right:auto;
+
+      
+}
+#t1 th{ 
+    padding: 1em;
+    text-align: center;
+    background-color: #3CB371;
+    /*border: 0.01em solid #778899;*/
+    font-size: 1.5em;
+    color: #000000;
+    font-weight: bold;
+
+}
+#t1 #td1 {    
+    text-align: center;
+    /*border: 0.01em solid #778899;*/
+    font-weight:bold;
+    font-size: 1.5em;
+}
+#t1 td,#t1 tr{    
+    padding: 0.5em;
+    text-align: left;
+    border: 0.01em solid #3CB371;
+}
+/*#t1  tr:nth-child(even){
+    background-color: #3CB371;
+    color: #3c3c3c;
+} 
+*/
