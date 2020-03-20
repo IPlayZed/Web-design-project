@@ -36,6 +36,10 @@
     margin-left: auto;
     margin-right: auto;
 }
+.flex-pf-center{
+    justify-content: center;
+    align-items: center;
+}
 
 /* Floating in footer */
 #footer-left{
