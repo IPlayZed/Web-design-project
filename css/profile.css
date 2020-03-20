@@ -3,12 +3,15 @@ html{
 }
 #m_prof{
     text-align:left;
+}
+#prof_div{
     position:relative;
-    top:0em;
-    left:5em;
+    left:2em;
 }
 
-img {
+#avatar{
     border-radius: 2em;
     border:0.2em solid rgba(255, 145, 1, 0.685);
+    max-width:10em;
+    max-height:10em;
 }
