@@ -44,8 +44,8 @@
                     </ul>
                 </aside>  
 
-                <main class="flex-column-container">
-                    <form> <!-- php -->
+                <main>
+                    <form class="flex-column-container"> <!-- php -->
                         <label for="email">E-mail</label><br>
                         <input type="text" id="email" name="email" value="E-mail" required><br>
                         <label for="usr">Felhasználónév</label><br>
@@ -61,9 +61,11 @@
                             <option value="helo">Helikopter</option>
                             <option value="train">Tehervonat</option>
                         </select>
-                        <hr>
-                        <button type="submit" value="Elfogad">Elfogad</button>
-                        <button type="reset" value="Reset">Mégse</button><br>
+                        <div class="flex-row-container">
+                            <button type="submit" value="Elfogad">Elfogad</button>
+                            <button type="reset" value="Reset">Mégse</button>
+                        </div>
+                        
                     </form>
                 </main>
             </div>
