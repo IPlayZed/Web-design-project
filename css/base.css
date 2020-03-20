@@ -41,14 +41,6 @@
     align-items: center;
 }
 
-.flex-row-container aside{
-    flex-basis: 5%;
-}
-
-.flex-row-container main{
-    flex-basis: 95%;
-}
-
 /* Floating in footer */
 #footer-left{
     float: left;
@@ -160,8 +152,3 @@ img{
     height: auto;
 }
 
-@media screen and (max-width: 992px){
-    nav ul{
-        flex-direction: row;
-    }
-}
