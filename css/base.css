@@ -1,3 +1,10 @@
+/* Google fonts imports */
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif&display=swap');
+
 /* Animations */
 @keyframes a_applyhover_colorchange{
     0% {color: rgb(30, 6, 240);}
