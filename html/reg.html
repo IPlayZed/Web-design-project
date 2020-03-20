@@ -45,27 +45,29 @@
                 </aside>
 
                 <main>
-                    <form> <!-- php -->
+                    <form class="flex-column-container"> <!-- php -->
                         <label for="email">E-mail<br>
-                        <input type="email" id="email" name="email" value="E-mail" required></label><br>
+                            <input type="email" id="email" name="email" value="E-mail" required></label><br>
                         <label for="usr">Felhasználónév<br>
-                        <input type="text" id="usr" name="usr" value="Felhasználónév" required></label><br>
+                            <input type="text" id="usr" name="usr" value="Felhasználónév" required></label><br>
                         <label for="pw">Jelszó<br>
-                        <input type="password" id="pwd" name="pwd" value="" required></label><br>
+                            <input type="password" id="pwd" name="pwd" value="" required></label><br>
                         <label for="pwd_again">Jelszó újra<br>
-                        <input type="password" id="pwd_again" name="pwd" value=""required></label><br>
+                            <input type="password" id="pwd_again" name="pwd" value=""required></label><br>
                         <label for="date">Születési dátum<br>
-                        <input type="date" name="date" value="" min="1900-01-01"></label><br>
+                            <input type="date" name="date" value="" min="1900-01-01"></label><br>
                         <label for="gender">Neme<br>
-                        <select id="gender" name="gender">
+                            <select id="gender" name="gender">
                             <option value="male">Férfi</option>
                             <option value="female">Nő</option>
                             <option value="helo">Helikopter</option>
                             <option value="train">Tehervonat</option>
-                        </select></label>
-                        <hr>
-                        <button type="submit" value="Elfogad">Elfogad</button>
-                        <button type="reset" value="Reset">Mégse</button><br>
+                        </select>
+                        <div class="flex-row-container">
+                            <button type="submit" value="Elfogad">Elfogad</button>
+                            <button type="reset" value="Reset">Mégse</button>
+                        </div>
+                        
                     </form>
                 </main>
             </div>
