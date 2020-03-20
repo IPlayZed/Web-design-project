@@ -10,7 +10,7 @@
         <title>Profil</title>
         
         <link rel="stylesheet" type="text/css" href="../css/profile.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/login2.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/reg.css"/>
         <link rel="stylesheet" type="text/css" href="../css/base.css">
 
         <link rel="icon" type="image/png" href="../media/icons/Logo.png"/>
@@ -38,20 +38,26 @@
             </div>
 
             <div class="flex-row-container">
-                <aside id="prof_a" class="flex-column-container">
+                <aside class="flex-column-container">
                     <h1>Kapcsolódó weblapok</h1>
                     <ul>
                         <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">A CSS Wikipédia oldala</a></li>
                     </ul>
                 </aside> 
 
-                <main id="m_prof" class="flex-column-container">
-                    <div>
-                        <h1>Profilom</h1>
-                        <img src="../media/pictures/default_avatar.png" alt="usr img"> <!--profilképnek hely ha lesz egyszer regisztrált "felhasználó"-->
+                <main class="flex-column-container">
+                    <div class="flex-row-container">
+                        <img src="../media/pictures/default_avatar.png" id="avatar" alt="usr img"> <!--profilképnek hely ha lesz egyszer regisztrált "felhasználó"-->
+                    <div id="prof_div" class="flex-column-container">
+                        <h2>Saját adataim</h2>
+                        <p>Felhasználónév: "user"</p>
+                        <p>Név: "Firstname Lastname"</p>
+                        <p>Szül. Dátum: "XXXX.XX.XX"</p>
+                        <p>Nem: "igen"</p>
+                    </div>
                     </div>
                     <div class="flex-column-container">
-                        <h2>Hasznos linkek</h2>
+                        <h3>Hasznos linkek</h3>
                         <a href="">Saját oldal létrehozása</a></li><br>
                         <a href="">Saját oldal</a></li><br>
                         <a href="">Látogatott linkek</a></li><br>
