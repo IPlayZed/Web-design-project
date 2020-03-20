@@ -36,6 +36,10 @@
     margin-left: auto;
     margin-right: auto;
 }
+.flex-pf-center{
+    justify-content: center;
+    align-items: center;
+}
 
 /* Floating in footer */
 #footer-left{
@@ -50,6 +54,17 @@
     right: 0px;
 
     background-color: #d3d3d3d3;
+}
+
+body{
+    font-family: 'Noto Serif', serif;
+    font-weight: 500;
+    font-size: 1.1em;
+    font-style: normal;
+    color: black;
+
+    background: linear-gradient(to bottom right, #0ef5bbea,#adf507f6);
+    background-repeat: no-repeat;
 }
 
 /* HTML5 tags */
@@ -78,17 +93,6 @@ nav ul{
     list-style-type: none;
 }
 
-body{
-    font-family: 'Noto Serif', serif;
-    font-weight: 500;
-    font-size: 1.1em;
-    font-style: normal;
-    color: black;
-
-    background: linear-gradient(to bottom right, #0ef5bbea,#adf507f6);
-    background-repeat: no-repeat;
-}
-
 aside{
     margin-right: 1.4em;
 
@@ -110,6 +114,10 @@ aside ul{
 }
 aside ul li{
     font-weight: 700;
+}
+
+main{
+    overflow-y: auto;
 }
 
 footer{
