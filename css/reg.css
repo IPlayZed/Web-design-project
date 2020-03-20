@@ -3,9 +3,8 @@ html {
     min-height:100%
   }
 
-aside{
+  aside{
     max-width:8.2em;
-    min-height:30em;
     margin-right: 1.4em;
 
     padding-top: 0.3em;
@@ -53,4 +52,9 @@ hr{
 }
 #div_button{
     justify-content: center;
+}
+@media screen and (max-width: 992px){
+    nav ul{
+        flex-direction: column;
+    }
 }
