@@ -14,7 +14,6 @@
     100% {color: rgb(30, 6, 240);}
 }
 
-
 *{
     text-rendering: optimizeLegibility;
 }
@@ -38,6 +37,7 @@
     margin-right: auto;
 }
 
+/* Floating in footer */
 #footer-left{
     float: left;
 }
@@ -52,7 +52,7 @@
     background-color: #d3d3d3d3;
 }
 
-
+/* HTML5 tags */
 header{
     font-family: 'Amatic SC', cursive;
     font-weight: 900;
@@ -126,6 +126,7 @@ footer{
 a{
     font-family: 'Quicksand', sans-serif;
     text-decoration: none;
+    cursor: pointer;
 }
 a:visited,a:link{
     color: rgb(30, 6, 240);
