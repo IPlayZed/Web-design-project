@@ -156,4 +156,10 @@ img{
     nav ul{
         flex-direction: column !important;
     }
+    #responsive{
+        flex-direction: column-reverse;
+    }
+    #responsive aside{
+        margin-top: 16px;
+    }
 }
