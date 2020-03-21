@@ -3,6 +3,10 @@ html {
     min-height:100%
   }
 
+form{
+    position:static;
+    
+}
   aside{
     /*max-width:8.2em;*/
     margin-right: 1.4em;
