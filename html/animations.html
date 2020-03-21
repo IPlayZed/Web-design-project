@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
     <head>
         <meta charset="UTF-8"/>
-        <meta name="author" content="Börcsök Balázs Róbert,Illés Árpád"/> <!--Egészítsd ki majd :d-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!---->
+        <meta name="author" content="Börcsök Balázs Róbert,Illés Árpád"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta keywords="CSS,wiki,learning,general,description"/>
         <meta name="description" content="CSS wiki"/>
 
@@ -34,8 +34,8 @@
                         </ul>
                 </nav>
 
-            <div class="flex-row-container">
-                <aside class="flex-column-container"> <!--Ide jön majd az értékelés lehetősége.-->
+            <div class="flex-row-container responsive">
+                <aside class="flex-column-container">
                     <h1>Kapcsolódó weblapok</h1>
                     <ul>
                         <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">A CSS Wikipádia oldala</a></li>
@@ -43,12 +43,40 @@
                 </aside> 
 
                 <main class="flex-column-container">
-                    <h1>Az animáció alapjai: a transzformációk</h1>
-                    <div>
-                        <p>Az animációk egy alapkövét adják a transzformációk, melyek lehetnek 2 dimeziósak, illetve 3 dimenziósak.</p>
-                        <p>A legegyszerűbb 2D transzformáció a <code>translate()</code>, mely az a sík két tengelyén tolja el megfelelően a kiejlölt tartalmat.</p>
-                        <div id="translate">El lettem tolva 30 pixellel jobbra, illetve 40 pixellel lefelé</div>
+
+                    <div class="flex-column-container">
+                            <h1>Az animáció alapjai: a transzformációk</h1>
+                                <div class="flex-column-container">
+                                    <p>Az animációk egy alapkövét adják a transzformációk, melyek lehetnek 2 dimeziósak, illetve 3 dimenziósak.</p>
+                                    <h2>A 2D transzformációk</h2>
+                                    <div>
+                                        <p>A 2D transzformációk alapját a <code>transform</code> és <code>transform-origin</code> tulajdonságok adják.</p>
+                                        <ul>
+                                            <li><code>transform</code> :értéke megadja, hogy milyen transzláció/transzformációk vonatkozzanak egy elemre.</li>
+                                            <li><code>transform-origin</code> :segítségével tudjuk megváltoztatni a már <em>transzformált</em> elemek pozicióját.</li>
+                                        </ul>
+                                            <div class="flex-column-container">
+                                                <div>
+                                                    <h3>A transzláció/eltolás</h3>
+                                                        <p>A transzláció/eltolás eltolja az objektumot adott mértékben az X-, illetve az Y-tengelyen.</p>
+                                                        <div id="ex-non-translated">Normál</div>
+                                                        <div id="ex-translated">Eltolt</div>
+                                                </div>
+                                                <div>
+                                                    <h3>A rotáció/forgatás</h3>
+                                                        <p>Elforgatja az elemet. A pozitív érékek az óramutató járásával megegyező, a negatívak ellentétes forgatást jelentenek.
+                                                        (Pont a matematikai definícióval ellentétesen működik.) 
+                                                        </p>
+                                                        <div id="ex-non-rotated">Nomrál</div>
+                                                        <div id="ex-rotated">Elforgatott</div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                        
+                                </div>
+
                     </div>
+                    
                 </main>
             </div>
             

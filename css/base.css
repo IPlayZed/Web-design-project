@@ -49,6 +49,15 @@
 #footer-right{
     float: right;
 
+    width: fit-content;
+    height: fit-content;
+
+    padding-left: 0.1em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-right: 0.05em;
+
+
     position: fixed;
     bottom: 0px;
     right: 0px;
@@ -156,10 +165,10 @@ img{
     nav ul{
         flex-direction: column !important;
     }
-    #responsive{
+    .responsive{
         flex-direction: column-reverse;
     }
-    #responsive aside{
+    .responsive aside{
         margin-top: 16px;
     }
 }
