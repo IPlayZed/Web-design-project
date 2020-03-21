@@ -53,8 +53,3 @@ hr{
 #div_button{
     justify-content: center;
 }
-@media screen and (max-width: 992px){
-    nav ul{
-        flex-direction: column;
-    }
-}
