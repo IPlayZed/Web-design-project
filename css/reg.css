@@ -5,23 +5,6 @@ html {
 
 form{
     position:static;
-    
-}
-  aside{
-    /*max-width:8.2em;*/
-    margin-right: 1.4em;
-
-    padding-top: 0.3em;
-    padding-right: 1em;
-    padding-left: 1em;
-
-
-    border-top-style: solid;
-    border-right-style: solid;
-    border-top-color: #000000;
-    border-radius: 2em;
-
-    font-family: 'Quicksand', sans-serif;
 }
 form button{
     max-width: 5.5em;
@@ -56,4 +39,9 @@ hr{
 }
 #div_button{
     justify-content: center;
+}
+@media screen and (min-width: 992px){
+aside{
+    max-width:8.5em;
+}
 }
