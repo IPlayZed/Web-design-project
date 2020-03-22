@@ -65,6 +65,33 @@
     background-color: #d3d3d3d3;
 }
 
+/* Tooltip popup*/
+
+/* Container */
+.tooltip{
+    position: relative;
+}
+
+/* Popup container */
+.tooltip .tooltip-text{
+    visibility: hidden;
+    width: fit-content;
+    height: 1em;
+    background-color: rgb(1, 34, 0);
+    color: azure;
+    text-align: center;
+    padding: 0.1em 0.2em 0.2em 0.2em;
+    border-radius: 3.5px;
+    position: absolute;
+    z-index: 1;
+}
+
+/* Enable popup */
+.tooltip:hover .tooltip-text{
+    visibility: visible;
+    margin-left: 1.6em;
+}
+
 body{
     font-family: 'Noto Serif', serif;
     font-weight: 500;
@@ -137,6 +164,11 @@ footer{
     border-top-color: #000000;
 
     margin-top: 1.5em;
+}
+
+footer img{
+    max-width: 1.5em;
+    max-height: 1.5em;
 }
 
 
