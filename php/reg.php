@@ -77,57 +77,52 @@
                                 private $born;
                                 private $gender;
 
-                                public function __contruct($email, $username, $password, $born, $gender) {
-                                    setEmail($email);
-                                    setUsername($username);
-                                    setPassword($password);
-                                    setBorn($born);
-                                    setGender($gender);
-                                }
-
                                 public function setEmail($email) {
-                                    $this->$email = $email;
+                                    $this->email = $email;
                                 }
                                 public function setUsername($username) {
-                                    $this->$username = $username;
+                                    $this->username = $username;
                                 }
                                 public function setPassword($password) {
-                                    $this->$password = $password;
+                                    $this->password = $password;
                                 }
                                 public function setBorn($born) {
-                                    $this->$born = $born;
+                                    $this->born = $born;
                                 }
                                 public function setGender($gender) {
-                                    $this->$gender = $gender;
+                                    $this->gender = $gender;
                                 }
 
                                 public function getEmail() {
-                                    return $this->$email;
+                                    return $this->email;
                                 }
                                 public function getUsername() {
-                                    return $this->$username;
+                                    return $this->username;
                                 }
                                 public function getPassword() {
-                                    return $this->$password;
+                                    return $this->password;
                                 }
                                 public function getBorn() {
-                                    return $this->$born;
+                                    return $this->born;
                                 }
                                 public function getGender() {
-                                    return $this->$gender;
+                                    return $this->gender;
+                                }
+
+                                public function __construct($email, $username, $password, $born, $gender) {
+                                    $this->setEmail($email);
+                                    $this->setUsername($username);
+                                    $this->setPassword($password);
+                                    $this->setBorn($born);
+                                    $this->setGender($gender);
                                 }
                             }
                             
                             $accounts = [];
 
                             //most ez ideiglenes, fájlból lesz importálva
-                            $accounts[0]=new Account();
-                            $accounts[0]->setEmail("adminemail@gmail.com");
-                            $accounts[0]->setUsername("admin");
-                            $accounts[0]->setPassword("password");
-                            $accounts[0]->setBorn("23/12/2000");
-                            $accounts[0]->setGender("male");
-
+                            $accounts[0]=new Account("admin@admin.com","admin","admin","01/01/2000","male");                            
+                            
                             if (isset($_POST["elkuld"])) {                                
                                 $email = $_POST["email"];
                                 $username = $_POST["usr"];
@@ -135,8 +130,12 @@
                                 $password_again = $_POST["pwd_again"];
                                 $born = date("d/m/Y", strtotime($_POST["date"]));
                                 $gender = $_POST["gender"];
+                            }
 
-
+                            foreach ($accounts as $account) {
+                                if ($account->getUsername() == $GLOBALS["username"]) {
+                                    die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
+                                }
                             }
                         ?>                        
                     </form>
