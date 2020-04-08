@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
@@ -43,7 +44,7 @@
                     </ul>
                 </aside>
                 <main>
-                    <form class="flex-column-container flex-pf-center" method="POST"> <!-- php -->
+                    <form class="flex-column-container flex-pf-center" method="POST">
                         <label for="email">E-mail<br>
                             <input type="email" id="email" name="email" value="E-mail" required></label>
                         <label for="usr">Felhasználónév<br>
@@ -53,7 +54,7 @@
                         <label for="pwd_again">Jelszó újra<br>
                             <input type="password" id="pwd_again" name="pwd_again" value="" required></label>
                         <label for="date">Születési dátum<br>
-                            <input type="date" name="date" value="" min="1900-01-01"></label>
+                            <input type="date" name="date" value="01/01/0000" min="1900-01-01"></label>
                         <label for="gender">Neme<br>
                             <select id="gender" name="gender">
                                 <option value="not_set">Nincs megadva</option>
@@ -67,11 +68,56 @@
                             <button type="submit" value="Elfogad" name="elkuld">Elfogad</button>
                             <button type="reset" value="Reset" name="reset">Mégse</button>
                         </div>
-                        <?php //lecsekkolom h minden mező ki van e töltve
-                            $accounts = [ /* Itt tároljuk a felhasználó-jelszó párosokat. */
-                                ["username" => "admin", "password" => "megatitkos"],
-                                ["username" => "test", "password" => "testpassword"]
-                            ]; 
+                        <?php
+                         //lecsekkolom h minden mező ki van e töltve
+                            class Account {
+                                private $email;
+                                private $username;
+                                private $password;
+                                private $born;
+                                private $gender;
+
+                                public function setEmail($email) {
+                                    $this->$email = $email;
+                                }
+                                public function setUsername($username) {
+                                    $this->$username = $username;
+                                }
+                                public function setPassword($password) {
+                                    $this->$password = $password;
+                                }
+                                public function setBorn($born) {
+                                    $this->$born = $born;
+                                }
+                                public function setGender($gender) {
+                                    $this->$gender = $gender;
+                                }
+
+                                public function getEmail() {
+                                    return $this->$email;
+                                }
+                                public function getUsername() {
+                                    return $this->$username;
+                                }
+                                public function getPassword() {
+                                    return $this->$password;
+                                }
+                                public function getBorn() {
+                                    return $this->$born;
+                                }
+                                public function getGender() {
+                                    return $this->$gender;
+                                }
+                            }
+                            
+                            $accounts = [$admin=new Account(), $test=new Account()];
+
+                            //most ez ideiglenes, fájlból lesz importálva
+                            $accounts["admin"]->setEmail("adminemail@gmail.com");
+                            $accounts["admin"]->setUsername("admin");
+                            $accounts["admin"]->setPassword("password");
+                            $accounts["admin"]->setBorn("23/12/2000");
+                            $accounts["admin"]->setGender("male");
 
                             if (isset($_POST["elkuld"])) {                                
                                 $email = $_POST["email"];
@@ -80,18 +126,6 @@
                                 $password_again = $_POST["pwd_again"];
                                 $born = date("d/m/Y", strtotime($_POST["date"]));
                                 $gender = $_POST["gender"];
-                                if ($password !== $password_again) {
-                                    echo "<div>A jelszavak nem egyeznek! Próbálja újra!</div>";
-                                }
-                                elseif ($gender === "not_set"){
-                                    echo "<div>Sikeres regisztráció! (Születési dátum vagy nem nincs megadva!) Szia $username!</div>";
-                                    if ($gender === "not_set") {
-                                        $gender = NULL;
-                                    }
-                                    else {
-                                    echo "<div>Sikeres regisztráció! Szia $username!</div>";
-                                    }
-                                }
                             }
                         ?>                        
                     </form>
