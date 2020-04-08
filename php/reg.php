@@ -43,7 +43,7 @@
                     </ul>
                 </aside>
                 <main>
-                    <form class="flex-column-container flex-pf-center" action="profile.php" method="POST"> <!-- php -->
+                    <form class="flex-column-container flex-pf-center" method="POST"> <!-- php -->
                         <label for="email">E-mail<br>
                             <input type="email" id="email" name="email" value="E-mail" required></label>
                         <label for="usr">Felhasználónév<br>
@@ -51,11 +51,12 @@
                         <label for="pw">Jelszó<br>
                             <input type="password" id="pwd" name="pwd" value="" required></label>
                         <label for="pwd_again">Jelszó újra<br>
-                            <input type="password" id="pwd_again" name="pwd" value="" required></label>
+                            <input type="password" id="pwd_again" name="pwd_again" value="" required></label>
                         <label for="date">Születési dátum<br>
                             <input type="date" name="date" value="" min="1900-01-01"></label>
                         <label for="gender">Neme<br>
                             <select id="gender" name="gender">
+                                <option value="not_set">Nincs megadva</option>
                                 <option value="male">Férfi</option>
                                 <option value="female">Nő</option>
                                 <option value="helo">Helikopter</option>
@@ -64,15 +65,35 @@
                         </label>
                         <div id="div_button" class="flex-row-container">
                             <button type="submit" value="Elfogad" name="elkuld">Elfogad</button>
-                            <button type="reset" value="Reset">Mégse</button>
+                            <button type="reset" value="Reset" name="reset">Mégse</button>
                         </div>
-
                         <?php //lecsekkolom h minden mező ki van e töltve
-                            if (isset($_GET["elkuld"])!=true) {
-                                echo "Nem töltötte ki helyesen az űrlapot!";
+                            $accounts = [ /* Itt tároljuk a felhasználó-jelszó párosokat. */
+                                ["username" => "admin", "password" => "megatitkos"],
+                                ["username" => "test", "password" => "testpassword"]
+                            ]; 
+
+                            if (isset($_POST["elkuld"])) {                                
+                                $email = $_POST["email"];
+                                $username = $_POST["usr"];
+                                $password = $_POST["pwd"];
+                                $password_again = $_POST["pwd_again"];
+                                $born = date("d/m/Y", strtotime($_POST["date"]));
+                                $gender = $_POST["gender"];
+                                if ($password !== $password_again) {
+                                    echo "<div>A jelszavak nem egyeznek! Próbálja újra!</div>";
+                                }
+                                elseif ($gender === "not_set"){
+                                    echo "<div>Sikeres regisztráció! (Születési dátum vagy nem nincs megadva!) Szia $username!</div>";
+                                    if ($gender === "not_set") {
+                                        $gender = NULL;
+                                    }
+                                    else {
+                                    echo "<div>Sikeres regisztráció! Szia $username!</div>";
+                                    }
+                                }
                             }
-                        ?>
-                        
+                        ?>                        
                     </form>
                 </main>            
             </div>
