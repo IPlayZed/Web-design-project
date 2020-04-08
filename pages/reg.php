@@ -1,5 +1,5 @@
-<?php session_start() ?>
-<?php set_include_path("./../php/reg") ?>
+<?php session_start(); ?>
+<?php set_include_path("../php/reg"); ?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
@@ -83,7 +83,8 @@
                             }
 
                             foreach ($accounts as $account) {
-                                if ($account->getUsername() == $GLOBALS["username"]) {
+                                global $username, $password, $password_again, $born, $gender;
+                                if ($account->getUsername() == $username) {
                                     die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
                                 }
                             }
