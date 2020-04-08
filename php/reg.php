@@ -77,6 +77,14 @@
                                 private $born;
                                 private $gender;
 
+                                public function __contruct($email, $username, $password, $born, $gender) {
+                                    setEmail($email);
+                                    setUsername($username);
+                                    setPassword($password);
+                                    setBorn($born);
+                                    setGender($gender);
+                                }
+
                                 public function setEmail($email) {
                                     $this->$email = $email;
                                 }
@@ -110,14 +118,15 @@
                                 }
                             }
                             
-                            $accounts = [$admin=new Account(), $test=new Account()];
+                            $accounts = [];
 
                             //most ez ideiglenes, fájlból lesz importálva
-                            $accounts["admin"]->setEmail("adminemail@gmail.com");
-                            $accounts["admin"]->setUsername("admin");
-                            $accounts["admin"]->setPassword("password");
-                            $accounts["admin"]->setBorn("23/12/2000");
-                            $accounts["admin"]->setGender("male");
+                            $accounts[0]=new Account();
+                            $accounts[0]->setEmail("adminemail@gmail.com");
+                            $accounts[0]->setUsername("admin");
+                            $accounts[0]->setPassword("password");
+                            $accounts[0]->setBorn("23/12/2000");
+                            $accounts[0]->setGender("male");
 
                             if (isset($_POST["elkuld"])) {                                
                                 $email = $_POST["email"];
@@ -126,6 +135,8 @@
                                 $password_again = $_POST["pwd_again"];
                                 $born = date("d/m/Y", strtotime($_POST["date"]));
                                 $gender = $_POST["gender"];
+
+
                             }
                         ?>                        
                     </form>
