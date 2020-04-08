@@ -1,4 +1,5 @@
 <?php session_start() ?>
+<?php set_include_path("./../php/reg") ?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
@@ -46,84 +47,33 @@
                 <main>
                     <form class="flex-column-container flex-pf-center" method="POST">
                         <label for="email">E-mail<br>
-                            <input type="email" id="email" name="email" value="E-mail" required></label>
+                            <input type="email" id="email" name="email" placeholder="user@email.com" required></label>
                         <label for="usr">Felhasználónév<br>
-                            <input type="text" id="usr" name="usr" value="Felhasználónév" required></label>
+                            <input type="text" id="usr" name="usr" placeholder="Felhasználónév" required></label>
                         <label for="pw">Jelszó<br>
-                            <input type="password" id="pwd" name="pwd" value="" required></label>
+                            <input type="password" id="pwd" name="pwd" placeholder="password" required></label>
                         <label for="pwd_again">Jelszó újra<br>
-                            <input type="password" id="pwd_again" name="pwd_again" value="" required></label>
+                            <input type="password" id="pwd_again" name="pwd_again" placeholder="password" required></label>
                         <label for="date">Születési dátum<br>
-                            <input type="date" name="date" value="01/01/0000" min="1900-01-01"></label>
+                            <input type="date" name="date" placeholder="01/01/2020" min="1900-01-01"></label>
                         <label for="gender">Neme<br>
                             <select id="gender" name="gender">
                                 <option value="not_set">Nincs megadva</option>
                                 <option value="male">Férfi</option>
                                 <option value="female">Nő</option>
-                                <option value="helo">Helikopter</option>
-                                <option value="train">Tehervonat</option>
                             </select><hr>
                         </label>
                         <div id="div_button" class="flex-row-container">
-                            <button type="submit" value="Elfogad" name="elkuld">Elfogad</button>
+                            <button type="submit" value="Submit" name="submit">Elfogad</button>
                             <button type="reset" value="Reset" name="reset">Mégse</button>
                         </div>
                         <?php
-                         //lecsekkolom h minden mező ki van e töltve
-                            class Account {
-                                private $email;
-                                private $username;
-                                private $password;
-                                private $born;
-                                private $gender;
-
-                                public function setEmail($email) {
-                                    $this->email = $email;
-                                }
-                                public function setUsername($username) {
-                                    $this->username = $username;
-                                }
-                                public function setPassword($password) {
-                                    $this->password = $password;
-                                }
-                                public function setBorn($born) {
-                                    $this->born = $born;
-                                }
-                                public function setGender($gender) {
-                                    $this->gender = $gender;
-                                }
-
-                                public function getEmail() {
-                                    return $this->email;
-                                }
-                                public function getUsername() {
-                                    return $this->username;
-                                }
-                                public function getPassword() {
-                                    return $this->password;
-                                }
-                                public function getBorn() {
-                                    return $this->born;
-                                }
-                                public function getGender() {
-                                    return $this->gender;
-                                }
-
-                                public function __construct($email, $username, $password, $born, $gender) {
-                                    $this->setEmail($email);
-                                    $this->setUsername($username);
-                                    $this->setPassword($password);
-                                    $this->setBorn($born);
-                                    $this->setGender($gender);
-                                }
-                            }
-                            
                             $accounts = [];
 
                             //most ez ideiglenes, fájlból lesz importálva
                             $accounts[0]=new Account("admin@admin.com","admin","admin","01/01/2000","male");                            
                             
-                            if (isset($_POST["elkuld"])) {                                
+                            if (isset($_POST["submit"])) {                                
                                 $email = $_POST["email"];
                                 $username = $_POST["usr"];
                                 $password = $_POST["pwd"];
