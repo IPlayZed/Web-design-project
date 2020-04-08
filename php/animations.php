@@ -27,10 +27,10 @@
                     
                 <nav> <!--Menü-->
                         <ul class="flex-row-container">
-                            <li><a href="home.html#top">Kezdőlap</a></li>
-                            <li><a href="animations.html#top">Animációk</a></li>
-                            <li><a href="personalrepo.html#top">Saját gyűjtemény</a></li> <!--Majd itt lehet kiválasztani a sütikbe elmentett animációkat/stílusokat.-->
-                            <li><a href="profile.html#top">Profilom</a></li>
+                            <li><a href="home.php#top">Kezdőlap</a></li>
+                            <li><a href="animations.php#top">Animációk</a></li>
+                            <li><a href="personalrepo.php#top">Saját gyűjtemény</a></li> <!--Majd itt lehet kiválasztani a sütikbe elmentett animációkat/stílusokat.-->
+                            <li><a href="profile.php#top">Profilom</a></li>
                         </ul>
                 </nav>
 
