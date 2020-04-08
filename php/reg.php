@@ -43,7 +43,7 @@
                     </ul>
                 </aside>
                 <main>
-                    <form class="flex-column-container flex-pf-center" method="POST"> <!-- php -->
+                    <form class="flex-column-container flex-pf-center" action="profile.php" method="POST"> <!-- php -->
                         <label for="email">E-mail<br>
                             <input type="email" id="email" name="email" value="E-mail" required></label>
                         <label for="usr">Felhasználónév<br>
