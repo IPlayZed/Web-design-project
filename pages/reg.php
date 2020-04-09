@@ -1,5 +1,6 @@
 <?php session_start(); ?>
-<?php set_include_path("../php/reg"); ?>
+<?php set_include_path("../php");
+      include_once("Account.php") ?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
@@ -73,19 +74,18 @@
                             //most ez ideiglenes, fájlból lesz importálva
                             $accounts[0]=new Account("admin@admin.com","admin","admin","01/01/2000","male");                            
                             
-                            if (isset($_POST["submit"])) {                                
+                            if (isset($_POST["submit"])) {   //ha nem fut le, akkor nincs deklaráció                             
                                 $email = $_POST["email"];
                                 $username = $_POST["usr"];
                                 $password = $_POST["pwd"];
                                 $password_again = $_POST["pwd_again"];
                                 $born = date("d/m/Y", strtotime($_POST["date"]));
                                 $gender = $_POST["gender"];
-                            }
 
-                            foreach ($accounts as $account) {
-                                global $username, $password, $password_again, $born, $gender;
-                                if ($account->getUsername() == $username) {
-                                    die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
+                                foreach ($accounts as $account) {                               
+                                    if ($account->getUsername() == $username) {
+                                        die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
+                                    }
                                 }
                             }
                         ?>                        
