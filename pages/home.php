@@ -4,7 +4,7 @@
     }
 
     set_include_path("../php");
-    echo isset($_SESSION);
+    echo "session:" .isset($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -19,8 +19,9 @@
         
         
         <link rel="stylesheet" type="text/css" href="../css/base.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/home.css">
+        <link rel="stylesheet" type="text/css" href="../css/home.css"/>
         <link rel="stylesheet" media="print" href="../css/print.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="../php/modify_nav.php"/>
         
         <link rel="icon" type="image/png" href="../media/icons/Logo.png"/>
 
