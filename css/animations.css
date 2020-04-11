@@ -57,8 +57,7 @@ main h1{
     z-index: 0;
 }
 
-/*@media screen and (max-width: 1222px){
-    main li:nth-child(2){
-        margin-top: initial;
-    }
-}*/
+#current{
+    background-color: greenyellow !important; 
+    border-radius: 3px !important;
+}

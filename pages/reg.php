@@ -17,7 +17,8 @@
         
         <link rel="icon" type="image/png" href="../media/icons/Logo.png"/>
 
-        <style></style>
+        <style>
+        </style>
         <script></script>     
     </head>
 
@@ -33,7 +34,7 @@
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
                             <li><a href="personalrepo.php#top">Saját gyűjtemény</a></li> <!--Majd itt lehet kiválasztani a sütikbe elmentett animációkat/stílusokat.-->
-                            <li><a href="profile.php#top">Profilom</a></li>
+                            <li id="current"><a href="profile.php#top">Profilom</a></li>
                         </ul>
                 </nav>
             </div>
@@ -56,7 +57,7 @@
                         <label for="pwd_again">Jelszó újra<br>
                             <input type="password" id="pwd_again" name="pwd_again" placeholder="password" required></label>
                         <label for="date">Születési dátum<br>
-                            <input type="date" name="date" placeholder="01/01/2020" min="1900-01-01"></label>
+                            <input type="date" name="date" placeholder="01/01/2020" min="1900-01-01" required></label>
                         <label for="gender">Neme<br>
                             <select id="gender" name="gender">
                                 <option value="not_set">Nincs megadva</option>
@@ -72,8 +73,11 @@
                             $accounts = [];
 
                             //most ez ideiglenes, fájlból lesz importálva
-                            $accounts[0]=new Account("admin@admin.com","admin","admin","01/01/2000","male");                            
+                            $accounts[0]=new Account("admin@admin.com","admin","admin","01/01/2000","male");
                             
+                            //$accounts[] mérete
+                            $arrlength=count($accounts);
+
                             if (isset($_POST["submit"])) {   //ha nem fut le, akkor nincs deklaráció                             
                                 $email = $_POST["email"];
                                 $username = $_POST["usr"];
@@ -81,12 +85,30 @@
                                 $password_again = $_POST["pwd_again"];
                                 $born = date("d/m/Y", strtotime($_POST["date"]));
                                 $gender = $_POST["gender"];
+                                
+                                if ($password !== $password_again) {
+                                    die("A jelszavak nem egyeznek!");
+                                }
 
                                 foreach ($accounts as $account) {                               
                                     if ($account->getUsername() == $username) {
                                         die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
                                     }
                                 }
+
+                                if ($gender==="not_set") {
+                                    echo "Nem nincs megadva, egyes funkciók lehet, hogy nem lesznek elérhetőek!";
+                                }
+                            
+                            //Ha minden rendben van, akkor új bejegyzés létrehozása a tömbben.
+                            $accounts[$arrlength-1]=new Account($email,$username,$password,$born,$gender);
+                            $arrlength=count($accounts);
+
+                            //Fájl megnyitása, ahova kiíratom.
+                            $accountDB=fopen("../data/accounts.txt","a") or die("Can't open users DB!"); //
+                            }
+                            if (isset($_POST["reset"])) {
+                                header("Location: http://localhost/web-design-project/pages/home.php#top");
                             }
                         ?>                        
                     </form>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
@@ -29,7 +30,7 @@
                         <ul class="flex-row-container">
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
-                            <li><a href="personalrepo.php#top">Saját gyűjtemény</a></li> <!--Majd itt lehet kiválasztani a sütikbe elmentett animációkat/stílusokat.-->
+                            <li id="current"><a href="personalrepo.php#top">Saját gyűjtemény</a></li> <!--Majd itt lehet kiválasztani a sütikbe elmentett animációkat/stílusokat.-->
                             <li><a href="profile.php#top">Profilom</a></li>
                         </ul>
                 </nav>
