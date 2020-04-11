@@ -37,101 +37,101 @@
                         <ul class="flex-row-container">
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
-                            <li><a href="personalrepo.php#top">Saját gyűjtemény</a></li> <!--Majd itt lehet kiválasztani a sütikbe elmentett animációkat/stílusokat.-->
                             <?php
-                            //Ha nem vagyunk bejelentkezve, akkor Regisztráció.
-                            if(isset($_SESSION["username"])) {                               
-                                echo "<li><a href=\"profile.php#top\">Profilom</a></li>";
-                            }
-                            else {
-                                echo "<li><a href=\"reg.php#top\">Regisztráció</a></li>";
-                            }
+                                if(isset($_SESSION["username"])) {
+                                    echo "<li><a href=\"personalrepo.php#top\">Saját gyűjtemény</a></li>";                           
+                                    echo "<li><a href=\"profile.php#top\">Profilom</a></li>";
+                                }
+                                else {
+                                    echo "<li><a href=\"reg.php#top\">Regisztráció</a></li>";
+                                }
                             ?>
                         </ul>
                 </nav>
             </div>
 
             <div class="flex-row-container responsive">
-                <aside class="flex-column-container">
+                <aside class="flex-column-container"> <!--Hasznos linkek az adott oldalhoz-->
                     <h1>Kapcsolódó weblapok</h1>
                     <ul>
                         <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">A CSS Wikipádia oldala</a></li>
+                        <li><a href="login.php#top">Van fiókod? Bejelentkezés</a></li>
                     </ul>
                 </aside>
-                <main>
-                    <form class="flex-column-container flex-pf-center" method="POST">
-                        <label for="email">E-mail<br>
-                            <input type="email" id="email" name="email" placeholder="user@email.com" required></label>
-                        <label for="usr">Felhasználónév<br>
-                            <input type="text" id="usr" name="usr" placeholder="Felhasználónév" required></label>
-                        <label for="pw">Jelszó<br>
-                            <input type="password" id="pwd" name="pwd" placeholder="password" required></label>
-                        <label for="pwd_again">Jelszó újra<br>
-                            <input type="password" id="pwd_again" name="pwd_again" placeholder="password" required></label>
-                        <label for="date">Születési dátum<br>
-                            <input type="date" name="date" placeholder="01/01/2020" min="1900-01-01" required></label>
-                        <label for="gender">Neme<br>
-                            <select id="gender" name="gender">
-                                <option value="not_set">Nincs megadva</option>
-                                <option value="male">Férfi</option>
-                                <option value="female">Nő</option>
-                            </select><hr>
-                        </label>
-                        <div id="div_button" class="flex-row-container">
-                            <button type="submit" value="Submit" name="submit">Elfogad</button>
-                            <button type="cancel" value="Reset" name="reset">Mégse</button>
-                        </div>
-                        <?php                                
-                            $accounts = [];
+                <main class="flex-column-container flex-pf-center">
+                        <form class="flex-column-container method="POST">
+                            <label for="email">E-mail<br>
+                                <input type="email" id="email" name="email" placeholder="user@email.com" required></label>
+                            <label for="usr">Felhasználónév<br>
+                                <input type="text" id="usr" name="usr" placeholder="Felhasználónév" required></label>
+                            <label for="pw">Jelszó<br>
+                                <input type="password" id="pwd" name="pwd" placeholder="password" required></label>
+                            <label for="pwd_again">Jelszó újra<br>
+                                <input type="password" id="pwd_again" name="pwd_again" placeholder="password" required></label>
+                            <label for="date">Születési dátum<br>
+                                <input type="date" name="date" placeholder="01/01/2020" min="1900-01-01" required></label>
+                            <label for="gender">Neme<br>
+                                <select id="gender" name="gender">
+                                    <option value="not_set">Nincs megadva</option>
+                                    <option value="male">Férfi</option>
+                                    <option value="female">Nő</option>
+                                </select><hr>
+                            </label>
+                            <div id="div_button" class="flex-row-container">
+                                <button type="submit" value="Submit" name="submit">Elfogad</button>
+                                <button type="cancel" value="Reset" name="reset">Mégse</button>
+                            </div>
+                            <?php                                
+                                $accounts = [];
 
-                            //most ez ideiglenes, fájlból lesz importálva
-                            $accounts[0]=new Account("admin@admin.com","admin","admin","01/01/2000","male");
-                            
-                            //$accounts[] mérete
-                            $currentindex=count($accounts)-1;
-
-                            if (isset($_POST["submit"])) {   //ha nem fut le, akkor nincs deklaráció                             
-                                $email = $_POST["email"];
-                                $username = $_POST["usr"];
-                                $password = $_POST["pwd"];
-                                $password_again = $_POST["pwd_again"];
-                                $born = date("d/m/Y", strtotime($_POST["date"]));
-                                $gender = $_POST["gender"];
+                                //most ez ideiglenes, fájlból lesz importálva
+                                $accounts[0]=new Account("admin@admin.com","admin","admin","01/01/2000","male");
                                 
-                                if ($password !== $password_again) {
-                                    die("A jelszavak nem egyeznek!");
-                                }
+                                //$accounts[] mérete
+                                $currentindex=count($accounts)-1;
 
-                                foreach ($accounts as $account) {                               
-                                    if ($account->getUsername() == $username) {
-                                        die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
+                                if (isset($_POST["submit"])) {   //ha nem fut le, akkor nincs deklaráció                             
+                                    $email = $_POST["email"];
+                                    $username = $_POST["usr"];
+                                    $password = $_POST["pwd"];
+                                    $password_again = $_POST["pwd_again"];
+                                    $born = date("d/m/Y", strtotime($_POST["date"]));
+                                    $gender = $_POST["gender"];
+                                    
+                                    if ($password !== $password_again) {
+                                        die("A jelszavak nem egyeznek!");
                                     }
-                                }
 
-                                if ($gender==="not_set") {
-                                    echo "Nem nincs megadva, egyes funkciók lehet, hogy nem lesznek elérhetőek!<br/>";
+                                    foreach ($accounts as $account) {                               
+                                        if ($account->getUsername() == $username) {
+                                            die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
+                                        }
+                                    }
+
+                                    if ($gender==="not_set") {
+                                        echo "Nem nincs megadva, egyes funkciók lehet, hogy nem lesznek elérhetőek!<br/>";
+                                    }
+                                
+                                //Ha minden rendben van, akkor új bejegyzés létrehozása a tömbben.
+                                $accounts[$currentindex]=new Account($email,$username,$password,$born,$gender);
+                                
+                                //Fájl megnyitása, ahova kiíratom.
+                                $accountDB=fopen("../data/accounts.txt","a") or die("Can't open users DB!");
+                                
+                                //A fájl végéhez csatolás
+                                //var_dump($accounts[$arrlength-1]);
+                                $accounts[$currentindex]->writeToFile($accountDB); //Beleírja a fájlba
+                                
+                                //A sor hossza megnőtt.
+                                $arrlength=count($accounts);
+                                
+                                //A felhasználó mostmár felismert.
+                                $_SESSION["username"]=$username;
+                                echo "Visszairányítás a kezdőlapra 3 másodpercen belül.";
+                                header('Refresh: 3; URL=home.php#top');
                                 }
-                            
-                            //Ha minden rendben van, akkor új bejegyzés létrehozása a tömbben.
-                            $accounts[$currentindex]=new Account($email,$username,$password,$born,$gender);
-                            
-                            //Fájl megnyitása, ahova kiíratom.
-                            $accountDB=fopen("../data/accounts.txt","a") or die("Can't open users DB!");
-                            
-                            //A fájl végéhez csatolás
-                            //var_dump($accounts[$arrlength-1]);
-                            $accounts[$currentindex]->writeToFile($accountDB); //Beleírja a fájlba
-                            
-                            //A sor hossza megnőtt.
-                            $arrlength=count($accounts);
-                            
-                            //A felhasználó mostmár felismert.
-                            $_SESSION["username"]=$username;
-                            echo "Visszairányítás a kezdőlapra 3 másodpercen belül.";
-                            header('Refresh: 3; URL=home.php#top');
-                            }
-                        ?> 
-                    </form>
+                            ?> 
+                        </form>   
                 </main>            
             </div>
             

@@ -36,8 +36,15 @@
                         <ul class="flex-row-container">
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
-                            <li id="current"><a href="personalrepo.php#top">Saját gyűjtemény</a></li> <!--Majd itt lehet kiválasztani a sütikbe elmentett animációkat/stílusokat.-->
-                            <li><a href="profile.php#top">Profilom</a></li>
+                            <?php
+                                if(isset($_SESSION["username"])) {
+                                    echo "<li><a href=\"personalrepo.php#top\">Saját gyűjtemény</a></li>";                           
+                                    echo "<li><a href=\"profile.php#top\">Profilom</a></li>";
+                                }
+                                else {
+                                    echo "<li><a href=\"reg.php#top\">Regisztráció</a></li>";
+                                }
+                            ?>
                         </ul>
                 </nav>
 
