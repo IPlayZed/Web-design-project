@@ -14,10 +14,10 @@
         <meta keywords="CSS,wiki,learning,general,description"/>
         <meta name="description" content="CSS wiki"/>
 
-        <title>A "nagy" CSS wiki</title>
+        <title>Bejelentkezés</title>
         
         <link rel="stylesheet" type="text/css" href="../css/base.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/personalrepo.css">
+        <link rel="stylesheet" type="text/css" href="../css/reg.css"/>
         
         <link rel="icon" type="image/png" href="../media/icons/Logo.png"/>
 
@@ -57,6 +57,18 @@
                 </aside> 
 
                 <main class="flex-column-container">
+                    <form method="POST">
+                        <label for="usrlogin">Felhasználónév<br/>
+                            <input type="text" id="usr" name="userlogin" placeholder="Felhasználónév" required>
+                        </label><br/>
+                        <label for="pwdlogin">Jelszó<br/>
+                            <input type="password" id="pwd" name="pwdlogin" placeholder="password" required><br/>
+                        </label> <br/>
+                        <div id="div_button" class="flex-row-container">
+                            <button type="submit" value="SubmitLogin" name="SubmitLogin">Belépés</button>
+                            <button type="cancel" value="Reset" name="reset">Mégse</button>
+                        </div>
+                    </form>
                 </main>
             </div>
             

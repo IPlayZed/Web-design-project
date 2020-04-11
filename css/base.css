@@ -17,11 +17,15 @@
 *{
     text-rendering: optimizeLegibility;
 }
-
+html, body {
+    height: auto !important;
+}
 /* Flexbox structure */
+/* Use justify content for tweaks!*/
 .flex-column-container{ /* Egy oszlopba, egymás alatt jeleníti meg az elemeket. */
     display: flex;
     flex-direction: column;
+    align-content: stretch;
 }
 
 .flex-row-container{ /* Egy sorban, egymás mellett jeleníti meg az elemeket. */

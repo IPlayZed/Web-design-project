@@ -59,12 +59,12 @@
                     </ul>
                 </aside>
                 <main class="flex-column-container flex-pf-center">
-                        <form class="flex-column-container method="POST">
+                        <form class="flex-column-container" method="POST">
                             <label for="email">E-mail<br>
                                 <input type="email" id="email" name="email" placeholder="user@email.com" required></label>
                             <label for="usr">Felhasználónév<br>
                                 <input type="text" id="usr" name="usr" placeholder="Felhasználónév" required></label>
-                            <label for="pw">Jelszó<br>
+                            <label for="pwd">Jelszó<br>
                                 <input type="password" id="pwd" name="pwd" placeholder="password" required></label>
                             <label for="pwd_again">Jelszó újra<br>
                                 <input type="password" id="pwd_again" name="pwd_again" placeholder="password" required></label>
