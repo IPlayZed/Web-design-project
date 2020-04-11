@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+    if (!isset($_SESSION)) {
+        session_start();
+    } 
+    set_include_path("../php");
+    include_once("Account.php");
+?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
@@ -31,7 +37,15 @@
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
                             <li id="current"><a href="personalrepo.php#top">Saját gyűjtemény</a></li> <!--Majd itt lehet kiválasztani a sütikbe elmentett animációkat/stílusokat.-->
-                            <li><a href="profile.php#top">Profilom</a></li>
+                            <?php
+                            //Ha nem vagyunk bejelentkezve, akkor Regisztráció.
+                            if(isset($_SESSION["username"])) {                               
+                                echo "<li><a href=\"profile.php#top\">Profilom</a></li>";
+                            }
+                            else {
+                                echo "<li><a href=\"reg.php#top\">Regisztráció</a></li>";
+                            }
+                            ?>
                         </ul>
                 </nav>
 

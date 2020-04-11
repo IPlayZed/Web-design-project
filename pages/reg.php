@@ -1,6 +1,11 @@
-<?php session_start(); ?>
-<?php set_include_path("../php");
-      include_once("Account.php") ?>
+<?php 
+    if (!isset($_SESSION)) {
+        session_start();
+    } 
+    set_include_path("../php");
+    include_once("Account.php");
+    include_once("get_ending_index.php");
+?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
@@ -34,7 +39,15 @@
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
                             <li><a href="personalrepo.php#top">Saját gyűjtemény</a></li> <!--Majd itt lehet kiválasztani a sütikbe elmentett animációkat/stílusokat.-->
-                            <li id="current"><a href="profile.php#top">Profilom</a></li>
+                            <?php
+                            //Ha nem vagyunk bejelentkezve, akkor Regisztráció.
+                            if(isset($_SESSION["username"])) {                               
+                                echo "<li><a href=\"profile.php#top\">Profilom</a></li>";
+                            }
+                            else {
+                                echo "<li><a href=\"reg.php#top\">Regisztráció</a></li>";
+                            }
+                            ?>
                         </ul>
                 </nav>
             </div>
@@ -69,14 +82,14 @@
                             <button type="submit" value="Submit" name="submit">Elfogad</button>
                             <button type="reset" value="Reset" name="reset">Mégse</button>
                         </div>
-                        <?php
+                        <?php                                
                             $accounts = [];
 
                             //most ez ideiglenes, fájlból lesz importálva
                             $accounts[0]=new Account("admin@admin.com","admin","admin","01/01/2000","male");
                             
                             //$accounts[] mérete
-                            $arrlength=count($accounts);
+                            $currentindex=count($accounts)-1;
 
                             if (isset($_POST["submit"])) {   //ha nem fut le, akkor nincs deklaráció                             
                                 $email = $_POST["email"];
@@ -101,23 +114,22 @@
                                 }
                             
                             //Ha minden rendben van, akkor új bejegyzés létrehozása a tömbben.
-                            $accounts[$arrlength-1]=new Account($email,$username,$password,$born,$gender);
+                            $accounts[$currentindex]=new Account($email,$username,$password,$born,$gender);
                             
                             //Fájl megnyitása, ahova kiíratom.
                             $accountDB=fopen("../data/accounts.txt","a") or die("Can't open users DB!");
                             
                             //A fájl végéhez csatolás
                             //var_dump($accounts[$arrlength-1]);
-                            $accounts[$arrlength-1]->writeToFile($accountDB); //Beleírja a fájlba
-
-                            $arrlength=count($accounts);
-                            }
-                            /*if (isset($_POST["reset"])) {
-                                header("Location: http://localhost/web-design-project/pages/home.php#top");
-                            }*/
-
+                            $accounts[$currentindex]->writeToFile($accountDB); //Beleírja a fájlba
                             
-                        ?>                        
+                            //A sor hossza megnőtt.
+                            $arrlength=count($accounts);
+                            
+                            //A felhasználó mostmár felismert.
+                            $_SESSION["username"]=$username;
+                            }
+                        ?> 
                     </form>
                 </main>            
             </div>

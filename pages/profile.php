@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+    if (!isset($_SESSION)) {
+        session_start();
+    } 
+    set_include_path("../php");
+    include_once("Account.php");
+?>
 <!DOCTYPE html>
 <html lang="hu">
     <head>
