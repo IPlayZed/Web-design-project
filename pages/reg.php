@@ -102,14 +102,21 @@
                             
                             //Ha minden rendben van, akkor új bejegyzés létrehozása a tömbben.
                             $accounts[$arrlength-1]=new Account($email,$username,$password,$born,$gender);
-                            $arrlength=count($accounts);
-
+                            
                             //Fájl megnyitása, ahova kiíratom.
-                            $accountDB=fopen("../data/accounts.txt","a") or die("Can't open users DB!"); //
+                            $accountDB=fopen("../data/accounts.txt","a") or die("Can't open users DB!");
+                            
+                            //A fájl végéhez csatolás
+                            //var_dump($accounts[$arrlength-1]);
+                            $accounts[$arrlength-1]->writeToFile($accountDB); //Beleírja a fájlba
+
+                            $arrlength=count($accounts);
                             }
-                            if (isset($_POST["reset"])) {
+                            /*if (isset($_POST["reset"])) {
                                 header("Location: http://localhost/web-design-project/pages/home.php#top");
-                            }
+                            }*/
+
+                            
                         ?>                        
                     </form>
                 </main>            

@@ -46,5 +46,19 @@
             $this->setBorn($born);
             $this->setGender($gender);
         }
+
+        public function writeToFile($filePointer) {
+            $newline="\n";
+            fwrite($filePointer, $this->getEmail());
+            fwrite($filePointer, $newline);
+            fwrite($filePointer, $this->getUsername());
+            fwrite($filePointer, $newline);
+            fwrite($filePointer, $this->getPassword());
+            fwrite($filePointer, $newline);
+            fwrite($filePointer, $this->getBorn());
+            fwrite($filePointer, $newline);
+            fwrite($filePointer, $this->getGender());
+            fwrite($filePointer, $newline);
+        }
     } 
 ?>
