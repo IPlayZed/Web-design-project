@@ -4,7 +4,6 @@
     } 
     set_include_path("../php");
     include_once("Account.php");
-    include_once("get_ending_index.php");
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -80,7 +79,7 @@
                         </label>
                         <div id="div_button" class="flex-row-container">
                             <button type="submit" value="Submit" name="submit">Elfogad</button>
-                            <button type="reset" value="Reset" name="reset">Mégse</button>
+                            <button type="cancel" value="Reset" name="reset">Mégse</button>
                         </div>
                         <?php                                
                             $accounts = [];
@@ -110,7 +109,7 @@
                                 }
 
                                 if ($gender==="not_set") {
-                                    echo "Nem nincs megadva, egyes funkciók lehet, hogy nem lesznek elérhetőek!";
+                                    echo "Nem nincs megadva, egyes funkciók lehet, hogy nem lesznek elérhetőek!<br/>";
                                 }
                             
                             //Ha minden rendben van, akkor új bejegyzés létrehozása a tömbben.
@@ -128,6 +127,8 @@
                             
                             //A felhasználó mostmár felismert.
                             $_SESSION["username"]=$username;
+                            echo "Visszairányítás a kezdőlapra 3 másodpercen belül.";
+                            header('Refresh: 3; URL=home.php#top');
                             }
                         ?> 
                     </form>
