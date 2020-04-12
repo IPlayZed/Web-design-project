@@ -81,15 +81,27 @@
                                 <button type="submit" value="Submit" name="submit">Elfogad</button>
                                 <button type="cancel" value="Reset" name="reset">Mégse</button>
                             </div>
-                            <?php                                
+                            <?php
+                            //Mivel regisztrálni csak akkor tud, ha még nincs bejelentkezve, így ebben az esetben elég ilyenkor beolvasni.
+                            //Létrehozok egy tömböt, megnyitom a felhasználói adatokat eltároló fájlt és kiolvasom belőle soronként 
+                            //a szöveget temporális változókban, kreálok egy új bejegyzést a konstruktorral a tömbben és növelem az indexet.                        
                                 $accounts = [];
-
-                                //most ez ideiglenes, fájlból lesz importálva
-                                $accounts[0]=new Account("admin@admin.com","admin","admin","01/01/2000","male");
-                                
-                                //$accounts[] mérete
+                                $readDB=fopen("../data/accounts.txt","r") or die("Could not open DB for read!");
+                                $i=0;
+                                while(!feof($readDB)) {
+                                    $tempEmail=fgets($readDB);
+                                    $tempUsername=fgets($readDB);
+                                    $tempPassword=fgets($readDB);
+                                    $tempBorn=fgets($readDB);
+                                    $tempGender=fgets($readDB);
+                                    $accounts[$i]=new Account($tempEmail,$tempUsername,$tempPassword,$tempBorn,$tempGender);
+                                    $i++;
+                                }
                                 $currentindex=count($accounts)-1;
 
+                                /*var_dump($accounts[0]->getUsername());
+                                var_dump($accounts[1]->getUsername());
+                                var_dump($accounts[0]->getUsername()==$accounts[1]->getUsername());*/
                                 if (isset($_POST["submit"])) {   //ha nem fut le, akkor nincs deklaráció                             
                                     $email = $_POST["email"];
                                     $username = $_POST["usr"];
@@ -102,8 +114,13 @@
                                         die("A jelszavak nem egyeznek!");
                                     }
 
-                                    foreach ($accounts as $account) {                               
-                                        if ($account->getUsername() == $username) {
+                                    foreach ($accounts as $account) {
+                                        $corrigated_username=$username." ";
+                                        $current=$account->getUsername();
+                                        echo "corrigate_username: "; var_dump($corrigated_username); echo "<br>";
+                                        echo "account_getusername: "; var_dump($current); echo "<br>";
+                                        var_dump($current == $corrigated_username); echo "<br>";                          
+                                        if ($account->getUsername() == $corrigated_username) {
                                             die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
                                         }
                                     }
@@ -127,8 +144,8 @@
                                 
                                 //A felhasználó mostmár felismert.
                                 $_SESSION["username"]=$username;
-                                echo "Visszairányítás a kezdőlapra 3 másodpercen belül.";
-                                header('Refresh: 3; URL=home.php#top');
+                                /*echo "Visszairányítás a kezdőlapra 3 másodpercen belül.";
+                                header('Refresh: 3; URL=home.php#top');*/
                                 }
                             ?> 
                         </form>   
