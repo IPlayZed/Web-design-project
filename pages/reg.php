@@ -94,7 +94,7 @@
                                     $tempPassword=fgets($readDB);
                                     $tempBorn=fgets($readDB);
                                     $tempGender=fgets($readDB);
-                                    $accounts[$i]=new Account($tempEmail,$tempUsername,$tempPassword,$tempBorn,$tempGender);
+                                    $accounts[$i]=new Account(trim($tempEmail),trim($tempUsername),trim($tempPassword),trim($tempBorn),trim($tempGender));
                                     $i++;
                                 }
                                 $currentindex=count($accounts)-1;
@@ -115,12 +115,12 @@
                                     }
 
                                     foreach ($accounts as $account) {
-                                        $corrigated_username=$username." ";
+                                        //$corrigated_username=$username." ";
                                         $current=$account->getUsername();
-                                        echo "corrigate_username: "; var_dump($corrigated_username); echo "<br>";
+                                        echo "corrigate_username: "; var_dump($username); echo "<br>";
                                         echo "account_getusername: "; var_dump($current); echo "<br>";
-                                        var_dump($current == $corrigated_username); echo "<br>";                          
-                                        if ($account->getUsername() == $corrigated_username) {
+                                        var_dump($current == $username); echo "<br>";              
+                                        if ($account->getUsername() == $username) {
                                             die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
                                         }
                                     }

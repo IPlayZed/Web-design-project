@@ -41,7 +41,7 @@
                         </ul>
                 </nav>
 
-            <div class="flex-row-container responsive">
+            <div class="flex-row-container responsive main-content">
                 <aside class="flex-column-container">
                     <h1>Kapcsolódó weblapok</h1>
                     <ul>

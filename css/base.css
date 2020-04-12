@@ -18,7 +18,7 @@
     text-rendering: optimizeLegibility;
 }
 html, body {
-    height: auto !important;
+    min-height: 100%;
 }
 /* Flexbox structure */
 /* Use justify content for tweaks!*/
@@ -71,6 +71,10 @@ html, body {
 
 .reg-failed{
     color: rgb(253, 253, 253);
+}
+
+.main-content {
+    min-height: 100% !important;
 }
 
 /* Tooltip popup*/
