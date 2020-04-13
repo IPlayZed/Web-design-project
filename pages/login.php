@@ -1,9 +1,12 @@
 <?php 
     if (!isset($_SESSION)) {
         session_start();
-    } 
+    }
     set_include_path("../php");
-    include_once("Account.php");
+    require_once("Account.php");
+
+    require_once("redirect_known.php");
+    require_once("fun_redirect_to_home.php");
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -36,15 +39,7 @@
                         <ul class="flex-row-container">
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
-                            <?php
-                                if(isset($_SESSION["username"])) {
-                                    echo "<li><a href=\"personalrepo.php#top\">Saját gyűjtemény</a></li>";                           
-                                    echo "<li><a href=\"profile.php#top\">Profilom</a></li>";
-                                }
-                                else {
-                                    echo "<li><a href=\"reg.php#top\">Regisztráció</a></li>";
-                                }
-                            ?>
+                            <?php require_once("modify_navbar.php"); ?>
                         </ul>
                 </nav>
 
@@ -53,6 +48,7 @@
                     <h1>Kapcsolódó weblapok</h1>
                     <ul>
                         <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">A CSS Wikipádia oldala</a></li>
+                        <li><a href="reg.php#top">Nincs fiókod? Bejelentkezés</a></li>
                     </ul>
                 </aside> 
 
@@ -68,6 +64,33 @@
                             <button type="submit" value="SubmitLogin" name="SubmitLogin">Belépés</button>
                             <button type="cancel" value="Reset" name="reset">Mégse</button>
                         </div>
+                        <?php
+                            if(isset($_POST["SubmitLogin"])) {
+                                $username=$_POST["userlogin"];
+                                $password=$_POST["pwdlogin"];
+                                
+                                require_once("build_accounts_array.php");
+
+                                $recognized=false;
+                                foreach ($accounts as $account) {             
+                                    if ($account->getUsername()==$username and $account->getPassword()==$password) {
+                                        $recognized=true;
+                                        break;
+                                    }
+                                }
+
+                                if($recognized==true) {
+                                    echo "<div class=\"php-announcement\">Szia $username!</div>";
+                                    redirect_to_home();
+                                    $_SESSION["username"]=$username;
+                                }
+                                if($recognized==false) {
+                                    echo "<div class=\"php-error-announcement\">Ilyen felhasználónév-jelszó páros nincs!";
+                                    unset($username);
+                                    unset($password);
+                                }
+                            }
+                        ?>
                     </form>
                 </main>
             </div>

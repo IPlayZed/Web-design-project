@@ -4,7 +4,6 @@
     }
 
     set_include_path("../php");
-    echo "session:" .isset($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -40,15 +39,7 @@
                         <ul class="flex-row-container">
                             <li id="current"><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
-                            <?php
-                                if(isset($_SESSION["username"])) {
-                                    echo "<li><a href=\"personalrepo.php#top\">Saját gyűjtemény/a></li>";                           
-                                    echo "<li><a href=\"profile.php#top\">Profilom</a></li>";
-                                }
-                                else {
-                                    echo "<li><a href=\"reg.php#top\">Regisztráció</a></li>";
-                                }
-                            ?>
+                            <?php require_once("modify_navbar.php"); ?>
                         </ul>
                 </nav>
 

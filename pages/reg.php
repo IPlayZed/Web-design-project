@@ -3,7 +3,9 @@
         session_start();
     } 
     set_include_path("../php");
-    include_once("Account.php");
+    require_once("Account.php");
+
+    require_once("fun_redirect_to_home.php");
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -37,15 +39,7 @@
                         <ul class="flex-row-container">
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
-                            <?php
-                                if(isset($_SESSION["username"])) {
-                                    echo "<li><a href=\"personalrepo.php#top\">Saját gyűjtemény</a></li>";                           
-                                    echo "<li><a href=\"profile.php#top\">Profilom</a></li>";
-                                }
-                                else {
-                                    echo "<li><a href=\"reg.php#top\">Regisztráció</a></li>";
-                                }
-                            ?>
+                            <?php require_once("modify_navbar.php"); ?>
                         </ul>
                 </nav>
             </div>
@@ -81,27 +75,9 @@
                                 <button type="submit" value="Submit" name="submit">Elfogad</button>
                                 <button type="cancel" value="Reset" name="reset">Mégse</button>
                             </div>
-                            <?php
-                            //Mivel regisztrálni csak akkor tud, ha még nincs bejelentkezve, így ebben az esetben elég ilyenkor beolvasni.
-                            //Létrehozok egy tömböt, megnyitom a felhasználói adatokat eltároló fájlt és kiolvasom belőle soronként 
-                            //a szöveget temporális változókban, kreálok egy új bejegyzést a konstruktorral a tömbben és növelem az indexet.                        
-                                $accounts = [];
-                                $readDB=fopen("../data/accounts.txt","r") or die("Could not open DB for read!");
-                                $i=0;
-                                while(!feof($readDB)) {
-                                    $tempEmail=fgets($readDB);
-                                    $tempUsername=fgets($readDB);
-                                    $tempPassword=fgets($readDB);
-                                    $tempBorn=fgets($readDB);
-                                    $tempGender=fgets($readDB);
-                                    $accounts[$i]=new Account(trim($tempEmail),trim($tempUsername),trim($tempPassword),trim($tempBorn),trim($tempGender));
-                                    $i++;
-                                }
-                                $currentindex=count($accounts)-1;
+                            <?php                       
+                                require_once("build_accounts_array.php");
 
-                                /*var_dump($accounts[0]->getUsername());
-                                var_dump($accounts[1]->getUsername());
-                                var_dump($accounts[0]->getUsername()==$accounts[1]->getUsername());*/
                                 if (isset($_POST["submit"])) {   //ha nem fut le, akkor nincs deklaráció                             
                                     $email = $_POST["email"];
                                     $username = $_POST["usr"];
@@ -114,19 +90,15 @@
                                         die("A jelszavak nem egyeznek!");
                                     }
 
-                                    foreach ($accounts as $account) {
-                                        //$corrigated_username=$username." ";
-                                        $current=$account->getUsername();
-                                        echo "corrigate_username: "; var_dump($username); echo "<br>";
-                                        echo "account_getusername: "; var_dump($current); echo "<br>";
-                                        var_dump($current == $username); echo "<br>";              
+                                    
+                                    foreach ($accounts as $account) {              
                                         if ($account->getUsername() == $username) {
                                             die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
                                         }
                                     }
 
                                     if ($gender==="not_set") {
-                                        echo "Nem nincs megadva, egyes funkciók lehet, hogy nem lesznek elérhetőek!<br/>";
+                                        echo "<span>A nem nincs megadva, egyes funkciók lehet, hogy nem lesznek elérhetőek!</span><br/>";
                                     }
                                 
                                 //Ha minden rendben van, akkor új bejegyzés létrehozása a tömbben.
@@ -143,9 +115,9 @@
                                 $arrlength=count($accounts);
                                 
                                 //A felhasználó mostmár felismert.
+                                //A session $username változó azonosítja a felhasználót.
                                 $_SESSION["username"]=$username;
-                                /*echo "Visszairányítás a kezdőlapra 3 másodpercen belül.";
-                                header('Refresh: 3; URL=home.php#top');*/
+                                redirect_to_home();
                                 }
                             ?> 
                         </form>   

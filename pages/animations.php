@@ -3,7 +3,7 @@
         session_start();
     } 
     set_include_path("../php");
-    include_once("Account.php");
+    require_once("Account.php");
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -36,15 +36,7 @@
                         <ul class="flex-row-container">
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li id="current"><a href="animations.php#top">Animációk</a></li>
-                            <?php
-                                if(isset($_SESSION["username"])) {
-                                    echo "<li><a href=\"personalrepo.php#top\">Saját gyűjtemény/a></li>";                           
-                                    echo "<li><a href=\"profile.php#top\">Profilom</a></li>";
-                                }
-                                else {
-                                    echo "<li><a href=\"reg.php#top\">Regisztráció</a></li>";
-                                }
-                            ?>
+                            <?php require_once("modify_navbar.php"); ?>
                         </ul>
                 </nav>
 

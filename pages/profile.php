@@ -3,7 +3,9 @@
         session_start();
     } 
     set_include_path("../php");
-    include_once("Account.php");
+    require_once("Account.php");
+
+    require_once("redirect_unknown.php");
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -37,8 +39,7 @@
                         <ul class="flex-row-container">
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
-                            <li><a href="personalrepo.php#top">Saját gyűjtemény</a></li> <!--Majd itt lehet kiválasztani a sütikbe elmentett animációkat/stílusokat.-->
-                            <li id="current"><a href="profile.php#top">Profilom</a></li>
+                            <?php require_once("modify_navbar.php"); ?>
                         </ul>
                 </nav>
             </div>
@@ -48,6 +49,7 @@
                     <h1>Kapcsolódó weblapok</h1>
                     <ul>
                         <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">A CSS Wikipédia oldala</a></li>
+                        <li><a href="../php/logout.php">Kijelentkezés</a></li>
                     </ul>
                 </aside>
 
