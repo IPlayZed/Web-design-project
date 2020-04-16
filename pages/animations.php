@@ -6,15 +6,36 @@
     require_once("Account.php");
     require_once("fun_conv_rad.php");
 
-    if(isset($_SESSION["rotate_val"])) {
-        echo $_SESSION["rotate_val"];
-        if(isset($_SESSION["username"])) {
-            setcookie($_SESSION["username"]."_rotate",$_SESSION["rotate_val"],time()+(15*365*24*60*60),"/");
+    if(isset($_GET["SubmitTranslate"])) {
+        $rotate_val_var=$_GET["rotate_val"];
+        if ($_GET["rotate_unit"]=="rad") {
+            $rotate_unit_rad=true;
         }
         else {
-            setcookie("rotate",$_SESSION["rotate_val"],time()+(15*365*24*60*60),"/");
+            $rotate_unit_rad=false;
         }
-    }
+        
+        //(A try-catch működik.)
+        try {
+            conv_rad($rotate_val_var,$rotate_unit_rad);
+            $_SESSION["rotate_val"]=$rotate_val_var;
+            echo $rotate_val_var."<br/>";echo $_SESSION["rotate_val"];
+
+            if(isset($_SESSION["username"])) {
+                setcookie($_SESSION["username"]."_rotate",$_SESSION["rotate_val"],time()+(15*365*24*60*60),"/");
+                header("Location: animations.php#ex-rotated");
+                exit();
+            }
+            else {
+                setcookie("rotate",$_SESSION["rotate_val"],time()+(15*365*24*60*60),"/");
+                header("Location: animations.php#ex-rotated");
+                exit();
+            }
+        }
+        catch(Exception $exc) {
+            echo "<br/><span class=\"php-error\">Error: " . $exc->getMessage() . "</span>";
+        }
+    }   
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -118,26 +139,7 @@
                                                                 <button type="cancel" value="Reset" name="reset">Mégse</button>
                                                             </div>
                                                             <?php
-                                                                if(isset($_GET["SubmitTranslate"])) {
-                                                                    $rotate_val_var=$_GET["rotate_val"];
-                                                                    if ($_GET["rotate_unit"]=="rad") {
-                                                                        $rotate_unit_rad=true;
-                                                                    }
-                                                                    else {
-                                                                        $rotate_unit_rad=false;
-                                                                    }
-                                                                    
-                                                                    //(A try-catch működik.)
-                                                                    try {
-                                                                        conv_rad($rotate_val_var,$rotate_unit_rad);
-                                                                        $_SESSION["rotate_val"]=$rotate_val_var;
-                                                                        echo $rotate_val_var."<br/>";echo $_SESSION["rotate_val"];
-                                                                        //header("Location: animations.php#ex-non-rotated");
-                                                                    }
-                                                                    catch(Exception $exc) {
-                                                                        echo "<br/><span class=\"php-error\">Error: " . $exc->getMessage() . "</span>";
-                                                                    }
-                                                                }        
+     
                                                             ?>
                                                         </form>
                                                 </div>
