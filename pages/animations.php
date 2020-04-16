@@ -4,6 +4,17 @@
     } 
     set_include_path("../php");
     require_once("Account.php");
+    require_once("fun_conv_rad.php");
+
+    if(isset($_SESSION["rotate_val"])) {
+        echo $_SESSION["rotate_val"];
+        if(isset($_SESSION["username"])) {
+            setcookie($_SESSION["username"]."_rotate",$_SESSION["rotate_val"],time()+(15*365*24*60*60),"/");
+        }
+        else {
+            setcookie("rotate",$_SESSION["rotate_val"],time()+(15*365*24*60*60),"/");
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -21,7 +32,24 @@
         
         <link rel="icon" type="image/png" href="../media/icons/Logo.png"/>
 
-        <style></style>
+        <style>
+            <?php
+                if(isset($_SESSION["username"])) {
+                    if(isset($_COOKIE[$_SESSION["username"]."_rotate"])) {
+                        $temprotate=$_COOKIE[$_SESSION["username"]."_rotate"];
+                        echo "#ex-rotated{transform: rotate($temprotate) !important;}";
+                    }
+                }
+                else{
+                    if(isset($_COOKIE["rotate"])) {
+                        $temprotate=$_COOKIE["rotate"];
+                        echo "#ex-rotated{
+                            transform: rotate($temprotate"."deg);
+                        }";
+                    }
+                }
+            ?>
+        </style>
         <script></script>     
     </head>
 
@@ -74,7 +102,44 @@
                                                         (Pont a matematikai definícióval ellentétesen működik.) 
                                                         </p>
                                                         <div id="ex-non-rotated">Nomrál</div>
-                                                        <div id="ex-rotated">Elforgatott</div>
+                                                        <div id="ex-rotated">Elforgatott</div><br/>
+                                                        <form method="GET">
+                                                            <label for="rotate_val">
+                                                                <input type="text" name="rotate_val" placeholder="Elforgatás mértéke" required>
+                                                            </label>
+                                                            <label for="rotate_unit">
+                                                                <select name="rotate_unit">
+                                                                    <option value="deg">Fok</option>
+                                                                    <option value="rad">Radián</option>
+                                                                </select>
+                                                            <label><br/>
+                                                            <div class="flex-row-container">
+                                                                <button type="submit" value="SubmitTranslate" name="SubmitTranslate">Transzformáció</button>
+                                                                <button type="cancel" value="Reset" name="reset">Mégse</button>
+                                                            </div>
+                                                            <?php
+                                                                if(isset($_GET["SubmitTranslate"])) {
+                                                                    $rotate_val_var=$_GET["rotate_val"];
+                                                                    if ($_GET["rotate_unit"]=="rad") {
+                                                                        $rotate_unit_rad=true;
+                                                                    }
+                                                                    else {
+                                                                        $rotate_unit_rad=false;
+                                                                    }
+                                                                    
+                                                                    //(A try-catch működik.)
+                                                                    try {
+                                                                        conv_rad($rotate_val_var,$rotate_unit_rad);
+                                                                        $_SESSION["rotate_val"]=$rotate_val_var;
+                                                                        echo $rotate_val_var."<br/>";echo $_SESSION["rotate_val"];
+                                                                        //header("Location: animations.php#ex-non-rotated");
+                                                                    }
+                                                                    catch(Exception $exc) {
+                                                                        echo "<br/><span class=\"php-error\">Error: " . $exc->getMessage() . "</span>";
+                                                                    }
+                                                                }        
+                                                            ?>
+                                                        </form>
                                                 </div>
                                                 <div class="flex-column-container">
                                                     <h3>A skálázás</h3>

@@ -93,12 +93,12 @@
                                     
                                     foreach ($accounts as $account) {              
                                         if ($account->getUsername() == $username) {
-                                            die("<div class=\"reg-failed\">A $username felhasználónév már foglalt!</div>");
+                                            die("<div class=\"php-error\">A $username felhasználónév már foglalt!</div>");
                                         }
                                     }
 
                                     if ($gender==="not_set") {
-                                        echo "<span>A nem nincs megadva, egyes funkciók lehet, hogy nem lesznek elérhetőek!</span><br/>";
+                                        echo "<span class=\"php-info\">A nem nincs megadva, egyes funkciók lehet, hogy nem lesznek elérhetőek!</span><br/>";
                                     }
                                 
                                 //Ha minden rendben van, akkor új bejegyzés létrehozása a tömbben.

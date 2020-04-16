@@ -45,7 +45,7 @@ hr{
     border-radius: 3px !important;
 }
 @media screen and (min-width: 992px){
-aside{
-    max-width:8.2em;
-}
+    aside{
+        max-width:8.2em;
+    }
 }
