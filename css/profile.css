@@ -2,6 +2,9 @@ main{
     width:100%;
     text-align:left;
 }
+main form{
+    margin-top: 3rem;
+}
 #prof_div{
     position:relative;
     left:2em;
@@ -13,6 +16,7 @@ main{
     max-height:10em;
     position:relative;
     top:1em;
+    margin-right: 1rem;
 }
 #current{
     background-color: greenyellow !important; 

@@ -55,24 +55,58 @@
 
                 <main class="flex-column-container">
                     <div class="flex-row-container" id="responsive">
-                        <div class="flex-column-comtainer">
-                            <img src="../media/pictures/default_avatar.png" id="avatar" alt="usr img"> <!--profilképnek hely -->
+                        <div>
+                            <?php
+                                if(file_exists($_SESSION["username"]."jpg")) {
+                                    $profilepath="../data/profilepics/".$_SESSION["username"].".jpg";
+                                }
+                                if(file_exists($_SESSION["username"]."png")) {
+                                    $profilepath="../data/profilepics/".$_SESSION["username"].".png";
+                                }
+                                if(file_exists($_SESSION["username"]."jpeg")) {
+                                    $profilepath="../data/profilepics/".$_SESSION["username"].".jpeg";
+                                }
+                                else{
+                                    $profilepath="../data/profilepics/default_avatar.png";
+                                }
+                                echo "<img src=\"$profilepath\" id=\"avatar\" alt=\"user image\">";
+                            ?>
                         </div>
                         <div class="flex-column-container">
-                            <h2>Saját adataim</h2>
-                            <p><b>Felhasználónév:</b> "user"</p>
-                            <p><b>Név:</b> "Firstname Lastname"</p>
-                            <p><b>Szül. Dátum:</b> "XXXX.XX.XX"</p>
-                            <p><b>Nem:</b> "igen"</p>
+                            <h1>Saját adataim</h1>
+                            <p><b>Felhasználónév:</b><?php echo $_SESSION["username"] ?></p>
                         </div>
                     </div>
-                    <div class="flex-column-container">
-                        <h3>Hasznos linkek</h3>
-                        <a href="">Saját oldal létrehozása</a></li><br>
-                        <a href="">Saját oldal</a></li><br>
-                        <a href="">Látogatott linkek</a></li><br>
-                        <a href="">Jelszó változtatás</a></li><br>
-                    </div>
+                    <form method="POST" enctype="multipart/form-data" class="flex-row-container">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="20000000">
+                        <input type="file" name="image" accept="image/*">
+                        <input type="submit" name="Upload" value="feltoltes">
+                        <?php
+                            if(isset($_POST["Upload"])) {
+                                $valid_ext=["jpg", "jpeg", "png"];
+                                $ext=pathinfo($_FILES["image"]["name"],PATHINFO_EXTENSION);
+
+                                if(in_array($ext,$valid_ext)) {
+                                    if($_FILES["image"]["error"]===0) {
+                                        if($_FILES["image"]["error"]<200000000) {
+                                            $dir_dest="../data/profilepics/". $_SESSION["username"]. ".". $ext;
+                                            move_uploaded_file($_FILES["image"]["temp_name"], $dir_dest);
+                                            echo "A feltöltés sikeres volt!<br/>";
+                                        }
+                                        else {
+                                            echo "Maxmimum 200 MB méretű lehet a feltölteni kívánt fájl!";
+                                        }
+                                    }
+                                    else {
+                                        echo "Valami hiba történt feltöltés közben, próbálja újra! <br/>";
+                                    }
+                                }
+                                else {
+                                    echo "Csak a .jpg, .jpeg és .png fájlkiterjesztések elfogadhatóak! <br/>";
+                                }
+                            }
+                        ?>
+                    </form>
                 </main>
             </div>
             
