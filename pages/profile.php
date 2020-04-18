@@ -39,7 +39,8 @@
                         <ul class="flex-row-container">
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
-                            <?php require_once("modify_navbar.php"); ?>
+                            <li><a href="personalrepo.php#top">Saját gyűjtemény</a></li>
+                            <li id="current"><a href="profile.php#top">Profilom</a></li>
                         </ul>
                 </nav>
             </div>

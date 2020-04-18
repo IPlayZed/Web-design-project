@@ -39,7 +39,7 @@
                         <ul class="flex-row-container">
                             <li><a href="home.php#top">Kezdőlap</a></li>
                             <li><a href="animations.php#top">Animációk</a></li>
-                            <?php require_once("modify_navbar.php"); ?>
+                            <li id="current"><a href="reg.php#top">Regisztráció</a></li>
                         </ul>
                 </nav>
             </div>
