@@ -107,7 +107,7 @@
 
                                 <tbody>
                                     <th id="CSS1">CSS 1</th>
-                                    <td headers="CSS1,leir">
+                                    <td headers="CSS1 leir">
                                     1996 December 17-én lett publikálva. Håkon Wium Lie és Bert Bos az eredeti fejlesztői.<br>Fontosabb tulajdonságai: <br>
                                     <ul>
                                     <li>Betűtípus tulajdonságok pl. typeface és emphasis</li>
@@ -123,7 +123,7 @@
                                     
                                     <tr>
                                     <th id="CSS2">CSS 2</th>
-                                    <td headers="CSS2,leir">
+                                    <td headers="CSS2 leir">
                                     A W3C fejlesztette és publikálta 1998 májusában.<br>CSS2 több új képességgel is bővült, mint pl.:<br>
                                     <ul>
                                     <li>Elemek abszolút,relatív és rögzített pozícionálása ,és a z-index</li>
@@ -137,7 +137,7 @@
                                     
                                     <tr>
                                     <th id="CSS2.1">CSS 2.1</th>
-                                    <td headers="CSS2.1,leir">
+                                    <td headers="CSS2.1 leir">
                                     CSS 2 hibáinak javítása, gyengén támogatott vagy nem teljesen működőképes funkciók eltávolítása, már implementált 
                                     böngésző kiegészítők hozzáadása. CSS 2.1 oda-vissza ugrált Working Draft és W3C Candidate Recommendation státusz között több évig
                                     majd végül 2011 Június 7-én publikálták W3C Recommendation néven.
@@ -146,7 +146,7 @@
                                     
                                     <tr>
                                     <th id="CSS3">CSS 3</th>
-                                    <td headers="CSS3,leir">
+                                    <td headers="CSS3 leir">
                                     CSS 2-vel ellentétben a CSS 3 több különálló dokumentumra/"modulokra" van felosztva.
                                     Minden modul új funkciókat ad hozzá vagy bővíti a CSS 2-ben definiáltakat, megőrizvén a visszafelé való kompatibilitást.
                                     A CSS 3 munkálatai nagyjából már az eredeti CSS 2 recommendation publikálásakor kezdődtek. Az első CSS 3 
@@ -157,7 +157,7 @@
                                     
                                     <tr>
                                     <th id="CSS4">CSS 4</th>
-                                    <td headers="CSS4,leir">
+                                    <td headers="CSS4 leir">
                                     Nincs egyedülálló, integrált CSS 4 specifikáció mert több különálló, egymástól független modulra van osztva.<br>
                                     CSS Level 2-re épülő modulok Level 3-ban kezdődtek, ezekből néhány már elérte a Level 4-et vagy már a Level 5-höz közelít.
                                     Teljesen új funkcionalitást defináló modulok (pl. a Flexbox) Level 1 -ként lettek jelölve, ezekből néhány Level 2-höz közelít.
