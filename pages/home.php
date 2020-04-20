@@ -104,19 +104,21 @@
                                 </thead>
 
                                 <tbody>
-                                    <th id="CSS1">CSS 1</th>
-                                        <td headers="CSS1 leir">
-                                            1996 December 17-én lett publikálva. Håkon Wium Lie és Bert Bos az eredeti fejlesztői.<br>Fontosabb tulajdonságai: <br>
-                                            <ul>
-                                                <li>Betűtípus tulajdonságok pl. typeface és emphasis</li>
-                                                <li>Szöveg, háttér és más elemek színe</li>
-                                                <li>Szöveg tulajdonságok: szó/betű/sor-táv</li>
-                                                <li>Szöveg, kép, táblázat és más elemek igazítása</li>
-                                                <li>Margó, keret, térköz és pozicionálás a legtöbb elemhez</li>
-                                                <li>Egyedi azonosító és általános osztályozás tulajdonságcsoportoknak</li> 
-                                            </ul>
-                                        </td>
-                 
+                                    <tr>
+                                        <th id="CSS1">CSS 1</th>
+                                            <td headers="CSS1 leir">
+                                                1996 December 17-én lett publikálva. Håkon Wium Lie és Bert Bos az eredeti fejlesztői.<br>Fontosabb tulajdonságai: <br>
+                                                <ul>
+                                                    <li>Betűtípus tulajdonságok pl. typeface és emphasis</li>
+                                                    <li>Szöveg, háttér és más elemek színe</li>
+                                                    <li>Szöveg tulajdonságok: szó/betű/sor-táv</li>
+                                                    <li>Szöveg, kép, táblázat és más elemek igazítása</li>
+                                                    <li>Margó, keret, térköz és pozicionálás a legtöbb elemhez</li>
+                                                    <li>Egyedi azonosító és általános osztályozás tulajdonságcsoportoknak</li> 
+                                                </ul>
+                                            </td>
+                                    </tr>
+
                                     <tr>
                                         <th id="CSS2">CSS 2</th>
                                             <td headers="CSS2 leir">
