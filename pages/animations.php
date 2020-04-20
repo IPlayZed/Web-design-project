@@ -6,6 +6,9 @@
     require_once("Account.php");
     require_once("fun_conv_rad.php");
 
+    $badfun=false;
+    $_SESSION["badfun"]=$badfun;
+
     if(isset($_GET["SubmitTranslate"])) {
         $rotate_val_var=$_GET["rotate_val"];
         if ($_GET["rotate_unit"]=="rad") {
@@ -33,8 +36,8 @@
             }
         }
         catch(Exception $exc) {
+            $_SESSION["badfun"]=true;
             $catched_message=$exc->getMessage();
-            //echo "<br/><span class=\"php-error\">Error: " . $exc->getMessage() . "</span>";
         }
     }   
 ?>
@@ -139,7 +142,9 @@
                                                                 <button value="Reset" name="reset">Mégse</button>
                                                             </div>
                                                             <?php
-     
+                                                                if($_SESSION["badfun"]===true) {
+                                                                    echo "<div class=\"php-error\">$catched_message</div>";
+                                                                }
                                                             ?>
                                                         </form>
                                                 </div>
