@@ -5,6 +5,7 @@
     set_include_path("../php");
     require_once("Account.php");
 
+    require_once("fun_redirect_to_home.php");
     require_once("redirect_unknown.php");
 ?>
 <!DOCTYPE html>
@@ -79,10 +80,9 @@
                     <form method="POST" enctype="multipart/form-data" class="flex-row-container">
                         <input type="hidden" name="MAX_FILE_SIZE" value="20000000">
                         <input type="file" name="image" accept="image/*">
-                        <input type="submit" name="Upload" value="feltoltes">
+                        <input type="submit" name="Upload" value="Feltöltés">
                         <?php
                             if(isset($_POST["Upload"])) {
-                                print_r($_FILES);
                                 $valid_ext=["jpg", "jpeg", "png"];
                                 $ext=pathinfo($_FILES["image"]["name"],PATHINFO_EXTENSION);
 
@@ -90,8 +90,12 @@
                                     if($_FILES["image"]["error"]===0) {
                                         if($_FILES["image"]["error"]<200000000) {
                                             $dir_dest="../data/profilepics/". $_SESSION["username"]. ".". $ext;
+                                            @unlink("../data/profilepics/". $_SESSION["username"]. ".png");
+                                            @unlink("../data/profilepics/". $_SESSION["username"]. ".jpg");
+                                            @unlink("../data/profilepics/". $_SESSION["username"]. ".jpeg");
                                             move_uploaded_file($_FILES["image"]["tmp_name"], $dir_dest);
                                             echo "A feltöltés sikeres volt!<br/>";
+                                            header("Refresh:0; URL=profile.php");
                                         }
                                         else {
                                             echo "Maxmimum 200 MB méretű lehet a feltölteni kívánt fájl!";
