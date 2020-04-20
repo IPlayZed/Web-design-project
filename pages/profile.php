@@ -13,7 +13,6 @@
         <meta charset="UTF-8"/>
         <meta name="author" content="Börcsök Balázs Róbert,Illés Árpád"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--A viewport szélességét az eszköz képernyőszélességnek állítja be, 1-szeres nagyítás.-->
-        <meta keywords="CSS,wiki,learning,general,description"/>
         <meta name="description" content="CSS wiki"/>
 
         <title>Profil</title>
@@ -43,7 +42,6 @@
                             <li id="current"><a href="profile.php#top">Profilom</a></li>
                         </ul>
                 </nav>
-            </div>
 
             <div class="flex-row-container responsive">
                 <aside class="flex-column-container">

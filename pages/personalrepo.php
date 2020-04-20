@@ -13,7 +13,6 @@
         <meta charset="UTF-8"/>
         <meta name="author" content="Börcsök Balázs Róbert,Illés Árpád"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta keywords="CSS,wiki,learning,general,description"/>
         <meta name="description" content="CSS wiki"/>
 
         <title>A "nagy" CSS wiki</title>

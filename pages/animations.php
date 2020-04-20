@@ -33,7 +33,8 @@
             }
         }
         catch(Exception $exc) {
-            echo "<br/><span class=\"php-error\">Error: " . $exc->getMessage() . "</span>";
+            $catched_message=$exc->getMessage();
+            //echo "<br/><span class=\"php-error\">Error: " . $exc->getMessage() . "</span>";
         }
     }   
 ?>
@@ -43,7 +44,6 @@
         <meta charset="UTF-8"/>
         <meta name="author" content="Börcsök Balázs Róbert,Illés Árpád"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta keywords="CSS,wiki,learning,general,description"/>
         <meta name="description" content="CSS wiki"/>
 
         <title>A "nagy" CSS wiki</title>
@@ -126,17 +126,17 @@
                                                         <div id="ex-rotated">Elforgatott</div><br/>
                                                         <form method="GET">
                                                             <label for="rotate_val">
-                                                                <input type="text" name="rotate_val" placeholder="Elforgatás mértéke" required>
+                                                                <input type="text" id="rotate_val" name="rotate_val" placeholder="Elforgatás mértéke" required>
                                                             </label>
                                                             <label for="rotate_unit">
-                                                                <select name="rotate_unit">
+                                                                <select name="rotate_unit" id="rotate_unit">
                                                                     <option value="deg">Fok</option>
                                                                     <option value="rad">Radián</option>
                                                                 </select>
-                                                            <label><br/>
+                                                            </label><br/>
                                                             <div class="flex-row-container">
                                                                 <button type="submit" value="SubmitTranslate" name="SubmitTranslate">Transzformáció</button>
-                                                                <button type="cancel" value="Reset" name="reset">Mégse</button>
+                                                                <button value="Reset" name="reset">Mégse</button>
                                                             </div>
                                                             <?php
      

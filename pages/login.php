@@ -14,7 +14,6 @@
         <meta charset="UTF-8"/>
         <meta name="author" content="Börcsök Balázs Róbert,Illés Árpád"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta keywords="CSS,wiki,learning,general,description"/>
         <meta name="description" content="CSS wiki"/>
 
         <title>Bejelentkezés</title>
@@ -48,21 +47,21 @@
                     <h1>Kapcsolódó weblapok</h1>
                     <ul>
                         <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">A CSS Wikipádia oldala</a></li>
-                        <li><a href="reg.php#top">Nincs fiókod? Bejelentkezés</a></li>
+                        <li><a href="reg.php#top">Nincs fiókod? Regisztráció</a></li>
                     </ul>
                 </aside> 
 
                 <main class="flex-column-container">
                     <form method="POST">
                         <label for="usrlogin">Felhasználónév<br/>
-                            <input type="text" id="usr" name="userlogin" placeholder="Felhasználónév" required>
+                            <input type="text" id="usrlogin" name="userlogin" placeholder="Felhasználónév" required>
                         </label><br/>
                         <label for="pwdlogin">Jelszó<br/>
-                            <input type="password" id="pwd" name="pwdlogin" placeholder="password" required><br/>
+                            <input type="password" id="pwdlogin" name="pwdlogin" placeholder="password" required><br/>
                         </label> <br/>
                         <div id="div_button" class="flex-row-container">
                             <button type="submit" value="SubmitLogin" name="SubmitLogin">Belépés</button>
-                            <button type="cancel" value="Reset" name="reset">Mégse</button>
+                            <button value="Reset" name="reset">Mégse</button>
                         </div>
                         <?php
                             if(isset($_POST["SubmitLogin"])) {
@@ -85,7 +84,7 @@
                                     $_SESSION["username"]=$username;
                                 }
                                 if($recognized==false) {
-                                    echo "<div class=\"php-error-announcement\">Ilyen felhasználónév-jelszó páros nincs!";
+                                    echo "<div class=\"php-error-announcement\">Ilyen felhasználónév-jelszó páros nincs!</div>";
                                     unset($username);
                                     unset($password);
                                 }

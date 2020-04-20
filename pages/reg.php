@@ -13,7 +13,6 @@
         <meta charset="UTF-8"/>
         <meta name="author" content="Börcsök Balázs Róbert,Illés Árpád"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--A viewport szélességét az eszköz képernyőszélességnek állítja be, 1-szeres nagyítás.-->
-        <meta keywords="CSS,wiki,learning,general,description"/>
         <meta name="description" content="CSS wiki"/>
 
         <title>Regisztráció</title>
@@ -42,7 +41,6 @@
                             <li id="current"><a href="reg.php#top">Regisztráció</a></li>
                         </ul>
                 </nav>
-            </div>
 
             <div class="flex-row-container responsive">
                 <aside class="flex-column-container"> <!--Hasznos linkek az adott oldalhoz-->
@@ -55,25 +53,29 @@
                 <main class="flex-column-container flex-pf-center">
                         <form class="flex-column-container" method="POST">
                             <label for="email">E-mail<br>
-                                <input type="email" id="email" name="email" placeholder="user@email.com" required></label>
+                                <input type="email" id="email" name="email" placeholder="user@email.com" required>
+                            </label>
                             <label for="usr">Felhasználónév<br>
-                                <input type="text" id="usr" name="usr" placeholder="Felhasználónév" required></label>
+                                <input type="text" id="usr" name="usr" placeholder="Felhasználónév" required>
+                            </label>
                             <label for="pwd">Jelszó<br>
                                 <input type="password" id="pwd" name="pwd" placeholder="password" required></label>
                             <label for="pwd_again">Jelszó újra<br>
-                                <input type="password" id="pwd_again" name="pwd_again" placeholder="password" required></label>
+                                <input type="password" id="pwd_again" name="pwd_again" placeholder="password" required>
+                            </label>
                             <label for="date">Születési dátum<br>
-                                <input type="date" name="date" placeholder="01/01/2020" min="1900-01-01" required></label>
+                                <input type="date" id="date" name="date" min="1900-01-01" required>
+                            </label>
                             <label for="gender">Neme<br>
                                 <select id="gender" name="gender">
                                     <option value="not_set">Nincs megadva</option>
                                     <option value="male">Férfi</option>
                                     <option value="female">Nő</option>
-                                </select><hr>
+                                </select>
                             </label>
                             <div id="div_button" class="flex-row-container">
                                 <button type="submit" value="Submit" name="submit">Elfogad</button>
-                                <button type="cancel" value="Reset" name="reset">Mégse</button>
+                                <button  value="Reset" name="reset">Mégse</button>
                             </div>
                             <?php                       
                                 require_once("build_accounts_array.php");
