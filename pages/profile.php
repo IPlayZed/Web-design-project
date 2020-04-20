@@ -5,7 +5,6 @@
     set_include_path("../php");
     require_once("Account.php");
 
-    require_once("fun_redirect_to_home.php");
     require_once("redirect_unknown.php");
 ?>
 <!DOCTYPE html>
