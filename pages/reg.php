@@ -59,7 +59,8 @@
                                 <input type="text" id="usr" name="usr" placeholder="Felhasználónév" required>
                             </label>
                             <label for="pwd">Jelszó<br>
-                                <input type="password" id="pwd" name="pwd" placeholder="password" required></label>
+                                <input type="password" id="pwd" name="pwd" placeholder="password" required>
+                            </label>
                             <label for="pwd_again">Jelszó újra<br>
                                 <input type="password" id="pwd_again" name="pwd_again" placeholder="password" required>
                             </label>
@@ -89,10 +90,13 @@
                                     $gender = $_POST["gender"];
                                     
                                     if ($password !== $password_again) {
-                                        die("A jelszavak nem egyeznek!");
+                                        die("<div class=\"php-error\">A jelszavak nem egyeznek!</div>");
                                     }
 
-                                    
+                                    if ($username=="" or $password=="") {
+                                        die("<div class=\"php-error\">A felhasználónévnek/jelszónak legalább 1 karakter hosszúnak kell lennie!</div>");
+                                    }
+
                                     foreach ($accounts as $account) {              
                                         if ($account->getUsername() == $username) {
                                             die("<div class=\"php-error\">A $username felhasználónév már foglalt!</div>");
